@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Model;
 
@@ -6,7 +6,7 @@ class Settings extends Model
 {
     public $implement = ['System.Behaviors.SettingsModel'];
 
-    public $settingsCode = 'indikator_news_settings';
+    public $settingsCode = 'holgerbaumann_news_settings';
 
     public $settingsFields = 'fields.yaml';
 }

@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\ReportWidgets;
+<?php namespace HolgerBaumann\News\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
 use Exception;
-use Indikator\News\Models\Posts as Post;
+use HolgerBaumann\News\Models\Posts as Post;
 
 class Posts extends ReportWidgetBase
 {
@@ -23,28 +23,28 @@ class Posts extends ReportWidgetBase
         return [
             'title' => [
                 'title'             => 'backend::lang.dashboard.widget_title_label',
-                'default'           => 'indikator.news::lang.widget.posts',
+                'default'           => 'holgerbaumann.news::lang.widget.posts',
                 'type'              => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
             ],
             'total' => [
-                'title'             => 'indikator.news::lang.widget.show_total',
+                'title'             => 'holgerbaumann.news::lang.widget.show_total',
                 'default'           => true,
                 'type'              => 'checkbox'
             ],
             'active' => [
-                'title'             => 'indikator.news::lang.widget.show_active',
+                'title'             => 'holgerbaumann.news::lang.widget.show_active',
                 'default'           => true,
                 'type'              => 'checkbox'
             ],
             'inactive' => [
-                'title'             => 'indikator.news::lang.widget.show_inactive',
+                'title'             => 'holgerbaumann.news::lang.widget.show_inactive',
                 'default'           => true,
                 'type'              => 'checkbox'
             ],
             'draft' => [
-                'title'             => 'indikator.news::lang.widget.show_draft',
+                'title'             => 'holgerbaumann.news::lang.widget.show_draft',
                 'default'           => true,
                 'type'              => 'checkbox'
             ]

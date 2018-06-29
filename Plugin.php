@@ -1,18 +1,18 @@
-<?php namespace Indikator\News;
+<?php namespace HolgerBaumann\News;
 
 use System\Classes\PluginBase;
 use Backend;
 use Event;
-use Indikator\News\Models\Posts;
+use HolgerBaumann\News\Models\Posts;
 
 class Plugin extends PluginBase
 {
     public function pluginDetails()
     {
         return [
-            'name'        => 'indikator.news::lang.plugin.name',
-            'description' => 'indikator.news::lang.plugin.description',
-            'author'      => 'indikator.news::lang.plugin.author',
+            'name'        => 'holgerbaumann.news::lang.plugin.name',
+            'description' => 'holgerbaumann.news::lang.plugin.description',
+            'author'      => 'holgerbaumann.news::lang.plugin.author',
             'icon'        => 'icon-newspaper-o',
             'homepage'    => 'https://github.com/gergo85/oc-news'
         ];
@@ -22,49 +22,49 @@ class Plugin extends PluginBase
     {
         return [
             'news' => [
-                'label'       => 'indikator.news::lang.menu.news',
-                'url'         => Backend::url('indikator/news/posts'),
+                'label'       => 'holgerbaumann.news::lang.menu.news',
+                'url'         => Backend::url('holgerbaumann/news/posts'),
                 'icon'        => 'icon-newspaper-o',
-                'iconSvg'     => 'plugins/indikator/news/assets/images/news-icon.svg',
-                'permissions' => ['indikator.news.*'],
+                'iconSvg'     => 'plugins/holgerbaumann/news/assets/images/news-icon.svg',
+                'permissions' => ['holgerbaumann.news.*'],
                 'order'       => 201,
 
                 'sideMenu' => [
                     'posts' => [
-                        'label'       => 'indikator.news::lang.menu.posts',
-                        'url'         => Backend::url('indikator/news/posts'),
+                        'label'       => 'holgerbaumann.news::lang.menu.posts',
+                        'url'         => Backend::url('holgerbaumann/news/posts'),
                         'icon'        => 'icon-file-text',
-                        'permissions' => ['indikator.news.posts']
+                        'permissions' => ['holgerbaumann.news.posts']
                     ],
                     'categories' => [
-                        'label'       => 'indikator.news::lang.menu.categories',
-                        'url'         => Backend::url('indikator/news/categories'),
+                        'label'       => 'holgerbaumann.news::lang.menu.categories',
+                        'url'         => Backend::url('holgerbaumann/news/categories'),
                         'icon'        => 'icon-tags',
-                        'permissions' => ['indikator.news.categories']
+                        'permissions' => ['holgerbaumann.news.categories']
                     ],
                     'subscribers' => [
-                        'label'        => 'indikator.news::lang.menu.subscribers',
-                        'url'         => Backend::url('indikator/news/subscribers'),
+                        'label'        => 'holgerbaumann.news::lang.menu.subscribers',
+                        'url'         => Backend::url('holgerbaumann/news/subscribers'),
                         'icon'        => 'icon-user',
-                        'permissions' => ['indikator.news.subscribers']
+                        'permissions' => ['holgerbaumann.news.subscribers']
                     ],
                     'statistics' => [
-                        'label'       => 'indikator.news::lang.menu.statistics',
-                        'url'         => Backend::url('indikator/news/statistics'),
+                        'label'       => 'holgerbaumann.news::lang.menu.statistics',
+                        'url'         => Backend::url('holgerbaumann/news/statistics'),
                         'icon'        => 'icon-area-chart',
-                        'permissions' => ['indikator.news.statistics']
+                        'permissions' => ['holgerbaumann.news.statistics']
                     ],
                     'logs' => [
-                        'label'       => 'indikator.news::lang.menu.logs',
-                        'url'         => Backend::url('indikator/news/logs'),
+                        'label'       => 'holgerbaumann.news::lang.menu.logs',
+                        'url'         => Backend::url('holgerbaumann/news/logs'),
                         'icon'        => 'icon-bar-chart',
-                        'permissions' => ['indikator.news.logs']
+                        'permissions' => ['holgerbaumann.news.logs']
                     ],
                     'settings' => [
-                        'label'       => 'indikator.news::lang.menu.settings',
-                        'url'         => Backend::url('system/settings/update/indikator/news/settings'),
+                        'label'       => 'holgerbaumann.news::lang.menu.settings',
+                        'url'         => Backend::url('system/settings/update/holgerbaumann/news/settings'),
                         'icon'        => 'icon-cogs',
-                        'permissions' => ['indikator.news.settings']
+                        'permissions' => ['holgerbaumann.news.settings']
                     ]
                 ]
             ]
@@ -75,14 +75,14 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'indikator.news::lang.plugin.name',
-                'description' => 'indikator.news::lang.backend_settings.description',
+                'label'       => 'holgerbaumann.news::lang.plugin.name',
+                'description' => 'holgerbaumann.news::lang.backend_settings.description',
                 'category'    => 'system::lang.system.categories.cms',
                 'icon'        => 'icon-newspaper-o',
-                'class'       => 'Indikator\News\Models\Settings',
+                'class'       => 'HolgerBaumann\News\Models\Settings',
                 'order'       => 500,
                 'keywords'    => 'news newsletter email statistics',
-                'permissions' => ['indikator.news.settings']
+                'permissions' => ['holgerbaumann.news.settings']
             ]
         ];
     }
@@ -90,20 +90,20 @@ class Plugin extends PluginBase
     public function registerReportWidgets()
     {
         return [
-            'Indikator\News\ReportWidgets\Posts' => [
-                'label'   => 'indikator.news::lang.widget.posts',
+            'HolgerBaumann\News\ReportWidgets\Posts' => [
+                'label'   => 'holgerbaumann.news::lang.widget.posts',
                 'context' => 'dashboard'
             ],
-            'Indikator\News\ReportWidgets\NewPosts' => [
-                'label'   => 'indikator.news::lang.widget.newposts',
+            'HolgerBaumann\News\ReportWidgets\NewPosts' => [
+                'label'   => 'holgerbaumann.news::lang.widget.newposts',
                 'context' => 'dashboard'
             ],
-            'Indikator\News\ReportWidgets\TopPosts' => [
-                'label'   => 'indikator.news::lang.widget.topposts',
+            'HolgerBaumann\News\ReportWidgets\TopPosts' => [
+                'label'   => 'holgerbaumann.news::lang.widget.topposts',
                 'context' => 'dashboard'
             ],
-            'Indikator\News\ReportWidgets\Subscribers' => [
-                'label'   => 'indikator.news::lang.widget.subscribers',
+            'HolgerBaumann\News\ReportWidgets\Subscribers' => [
+                'label'   => 'holgerbaumann.news::lang.widget.subscribers',
                 'context' => 'dashboard'
             ]
         ];
@@ -112,64 +112,64 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Indikator\News\Components\Posts'       => 'newsPosts',
-            'Indikator\News\Components\Post'        => 'newsPost',
-            'Indikator\News\Components\Categories'  => 'newsCategories',
-            'Indikator\News\Components\Subscribe'   => 'newsSubscribe',
-            'Indikator\News\Components\Unsubscribe' => 'newsUnsubscribe'
+            'HolgerBaumann\News\Components\Posts'       => 'newsPosts',
+            'HolgerBaumann\News\Components\Post'        => 'newsPost',
+            'HolgerBaumann\News\Components\Categories'  => 'newsCategories',
+            'HolgerBaumann\News\Components\Subscribe'   => 'newsSubscribe',
+            'HolgerBaumann\News\Components\Unsubscribe' => 'newsUnsubscribe'
         ];
     }
 
     public function registerMailTemplates()
     {
         return [
-            'indikator.news::mail.email_en' => 'E-mail',
-            'indikator.news::mail.email_hu' => 'E-mail'
+            'holgerbaumann.news::mail.email_en' => 'E-mail',
+            'holgerbaumann.news::mail.email_hu' => 'E-mail'
         ];
     }
 
     public function registerPermissions()
     {
         return [
-            'indikator.news.posts' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.posts',
+            'holgerbaumann.news.posts' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.posts',
                 'order' => 100,
                 'roles' => ['publisher']
             ],
-            'indikator.news.categories' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.categories',
+            'holgerbaumann.news.categories' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.categories',
                 'order' => 200,
                 'roles' => ['publisher']
             ],
-            'indikator.news.subscribers' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.subscribers',
+            'holgerbaumann.news.subscribers' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.subscribers',
                 'order' => 300,
                 'roles' => ['publisher']
             ],
-            'indikator.news.statistics' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.statistics',
+            'holgerbaumann.news.statistics' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.statistics',
                 'order' => 400,
                 'roles' => ['publisher']
             ],
-            'indikator.news.import_export' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.import_export',
+            'holgerbaumann.news.import_export' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.import_export',
                 'order' => 500,
                 'roles' => ['publisher']
             ],
-            'indikator.news.logs' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.logs',
+            'holgerbaumann.news.logs' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.logs',
                 'order' => 600,
                 'roles' => ['publisher']
             ],
-            'indikator.news.settings' => [
-                'tab'   => 'indikator.news::lang.menu.news',
-                'label' => 'indikator.news::lang.permission.settings',
+            'holgerbaumann.news.settings' => [
+                'tab'   => 'holgerbaumann.news::lang.menu.news',
+                'label' => 'holgerbaumann.news::lang.permission.settings',
                 'order' => 700,
                 'roles' => ['publisher']
             ]
@@ -186,8 +186,8 @@ class Plugin extends PluginBase
         Event::listen('pages.menuitem.listTypes', function()
         {
             return [
-                'post-list' => 'indikator.news::lang.sitemap.post_list',
-                'post-page' => 'indikator.news::lang.sitemap.post_page'
+                'post-list' => 'holgerbaumann.news::lang.sitemap.post_list',
+                'post-page' => 'holgerbaumann.news::lang.sitemap.post_page'
             ];
         });
 

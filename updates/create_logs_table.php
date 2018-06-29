@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Updates;
+<?php namespace HolgerBaumann\News\Updates;
 
 use October\Rain\Database\Updates\Migration;
 use Schema;
@@ -7,7 +7,7 @@ class CreateLogsTable extends Migration
 {
     public function up()
     {
-        Schema::create('indikator_news_newsletter_logs', function($table)
+        Schema::create('holgerbaumann_news_newsletter_logs', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -25,6 +25,6 @@ class CreateLogsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('indikator_news_newsletter_logs');
+        Schema::dropIfExists('holgerbaumann_news_newsletter_logs');
     }
 }

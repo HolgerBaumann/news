@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\ReportWidgets;
+<?php namespace HolgerBaumann\News\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
 use Exception;
-use Indikator\News\Models\Subscribers as Subscriber;
+use HolgerBaumann\News\Models\Subscribers as Subscriber;
 
 class Subscribers extends ReportWidgetBase
 {
@@ -23,23 +23,23 @@ class Subscribers extends ReportWidgetBase
         return [
             'title' => [
                 'title'             => 'backend::lang.dashboard.widget_title_label',
-                'default'           => 'indikator.news::lang.widget.subscribers',
+                'default'           => 'holgerbaumann.news::lang.widget.subscribers',
                 'type'              => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
             ],
             'total' => [
-                'title'             => 'indikator.news::lang.widget.show_total',
+                'title'             => 'holgerbaumann.news::lang.widget.show_total',
                 'default'           => true,
                 'type'              => 'checkbox'
             ],
             'active' => [
-                'title'             => 'indikator.news::lang.widget.show_active',
+                'title'             => 'holgerbaumann.news::lang.widget.show_active',
                 'default'           => true,
                 'type'              => 'checkbox'
             ],
             'unsub' => [
-                'title'             => 'indikator.news::lang.widget.show_unsub',
+                'title'             => 'holgerbaumann.news::lang.widget.show_unsub',
                 'default'           => true,
                 'type'              => 'checkbox'
             ]

@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use Indikator\News\Models\Subscribers as Item;
+use HolgerBaumann\News\Models\Subscribers as Item;
 use Db;
 use Flash;
 use Lang;
@@ -19,13 +19,13 @@ class Subscribers extends Controller
     public $listConfig = 'config_list.yaml';
     public $importExportConfig = 'config_import_export.yaml';
 
-    public $requiredPermissions = ['indikator.news.subscribers'];
+    public $requiredPermissions = ['holgerbaumann.news.subscribers'];
 
     public function __construct()
     {
         parent::__construct();
 
-        BackendMenu::setContext('Indikator.News', 'news', 'subscribers');
+        BackendMenu::setContext('HolgerBaumann.News', 'news', 'subscribers');
     }
 
     public function onSubscribe()
@@ -39,7 +39,7 @@ class Subscribers extends Controller
                 $item->update(['status' => 1]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.subscribe'));
+            Flash::success(Lang::get('holgerbaumann.content::lang.flash.subscribe'));
         }
 
         return $this->listRefresh();
@@ -56,7 +56,7 @@ class Subscribers extends Controller
                 $item->update(['status' => 2]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.unsubscribe'));
+            Flash::success(Lang::get('holgerbaumann.content::lang.flash.unsubscribe'));
         }
 
         return $this->listRefresh();
@@ -72,10 +72,10 @@ class Subscribers extends Controller
 
                 $item->delete();
 
-                Db::table('indikator_news_relations')->where('subscriber_id', $itemId)->delete();
+                Db::table('holgerbaumann_news_relations')->where('subscriber_id', $itemId)->delete();
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.remove'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.remove'));
         }
 
         return $this->listRefresh();

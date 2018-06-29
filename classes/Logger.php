@@ -1,7 +1,7 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
-use Indikator\News\Models\Logs;
-use Indikator\News\Models\Settings;
+use HolgerBaumann\News\Models\Logs;
+use HolgerBaumann\News\Models\Settings;
 use Jenssegers\Date\Date;
 
 class Logger

@@ -1,10 +1,10 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Backend\Models\ExportModel;
 
 class SubscribersExport extends ExportModel
 {
-    public $table = 'indikator_news_subscribers';
+    public $table = 'holgerbaumann_news_subscribers';
 
     public function exportData($columns, $sessionKey = null)
     {

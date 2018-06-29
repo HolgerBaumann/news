@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -7,8 +7,8 @@ use App;
 use File;
 use Mail;
 use Request;
-use Indikator\News\Models\Posts as Item;
-use Indikator\News\Classes\NewsSender;
+use HolgerBaumann\News\Models\Posts as Item;
+use HolgerBaumann\News\Classes\NewsSender;
 use Jenssegers\Date\Date;
 use Flash;
 use Lang;
@@ -26,7 +26,7 @@ class Posts extends Controller
     public $listConfig = 'config_list.yaml';
     public $importExportConfig = 'config_import_export.yaml';
 
-    public $requiredPermissions = ['indikator.news.posts'];
+    public $requiredPermissions = ['holgerbaumann.news.posts'];
 
     public $bodyClass = 'compact-container';
 
@@ -34,7 +34,7 @@ class Posts extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Indikator.News', 'news', 'posts');
+        BackendMenu::setContext('HolgerBaumann.News', 'news', 'posts');
     }
 
     protected function getNewsByPathOrFail()
@@ -53,7 +53,7 @@ class Posts extends Controller
             Flash::success(trans('system::lang.mail_templates.test_success'));
         }
         else {
-            Flash::error(trans('indikator.news::lang.flash.newsletter_test_error'));
+            Flash::error(trans('holgerbaumann.news::lang.flash.newsletter_test_error'));
         }
     }
 
@@ -70,14 +70,14 @@ class Posts extends Controller
             $sender = new NewsSender($news);
 
             if ($sender->sendNewsletter()) {
-                Flash::success(trans('indikator.news::lang.flash.newsletter_send_success'));
+                Flash::success(trans('holgerbaumann.news::lang.flash.newsletter_send_success'));
             }
             else {
-                Flash::error(trans('indikator.news::lang.flash.newsletter_send_error'));
+                Flash::error(trans('holgerbaumann.news::lang.flash.newsletter_send_error'));
             }
         }
         else {
-            Flash::error(trans('indikator.news::lang.flash.newsletter_send_error'));
+            Flash::error(trans('holgerbaumann.news::lang.flash.newsletter_send_error'));
         }
 
         return Redirect::refresh();
@@ -96,10 +96,10 @@ class Posts extends Controller
         if ($sender->resendNewsletter()) {
             Item::where('id', $news->id)->update(['last_send_at' => Date::now()]);
 
-            Flash::success(trans('indikator.news::lang.flash.newsletter_resend_success'));
+            Flash::success(trans('holgerbaumann.news::lang.flash.newsletter_resend_success'));
         }
         else {
-            Flash::error(trans('indikator.news::lang.flash.newsletter_resend_error'));
+            Flash::error(trans('holgerbaumann.news::lang.flash.newsletter_resend_error'));
         }
 
         return Redirect::refresh();
@@ -116,7 +116,7 @@ class Posts extends Controller
                 $item->update(['status' => 1]);
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.activate'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.activate'));
         }
 
         return $this->listRefresh();
@@ -133,7 +133,7 @@ class Posts extends Controller
                 $item->update(['status' => 2]);
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.deactivate'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.deactivate'));
         }
 
         return $this->listRefresh();
@@ -150,7 +150,7 @@ class Posts extends Controller
                 $item->update(['status' => 3]);
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.activate'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.activate'));
         }
 
         return $this->listRefresh();
@@ -167,7 +167,7 @@ class Posts extends Controller
                 $item->delete();
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.remove'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.remove'));
         }
 
         return $this->listRefresh();

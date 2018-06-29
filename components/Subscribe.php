@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\Components;
+<?php namespace HolgerBaumann\News\Components;
 
 use Cms\Classes\ComponentBase;
-use Indikator\News\Models\Categories;
-use Indikator\News\Models\Subscribers;
+use HolgerBaumann\News\Models\Categories;
+use HolgerBaumann\News\Models\Subscribers;
 use Lang;
 use Db;
 use App;
@@ -14,7 +14,7 @@ class Subscribe extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'indikator.news::lang.component.subscribe',
+            'name'        => 'holgerbaumann.news::lang.component.subscribe',
             'description' => ''
         ];
     }
@@ -25,11 +25,11 @@ class Subscribe extends ComponentBase
         $this->page['category_list']  = $category->get()->all();
         $this->page['category_count'] = $category->count();
 
-        $this->page['text_messages'] = Lang::get('indikator.news::lang.messages.subscribed');
-        $this->page['text_name']     = Lang::get('indikator.news::lang.form.name');
-        $this->page['text_email']    = Lang::get('indikator.news::lang.form.email');
-        $this->page['text_category'] = Lang::get('indikator.news::lang.form.category');
-        $this->page['text_button']   = Lang::get('indikator.news::lang.button.subscribe');
+        $this->page['text_messages'] = Lang::get('holgerbaumann.news::lang.messages.subscribed');
+        $this->page['text_name']     = Lang::get('holgerbaumann.news::lang.form.name');
+        $this->page['text_email']    = Lang::get('holgerbaumann.news::lang.form.email');
+        $this->page['text_category'] = Lang::get('holgerbaumann.news::lang.form.category');
+        $this->page['text_button']   = Lang::get('holgerbaumann.news::lang.button.subscribe');
     }
 
     public function onSubscription()
@@ -66,8 +66,8 @@ class Subscribe extends ComponentBase
 
             // Register category
             foreach ($data['category'] as $category) {
-                if (is_numeric($category) && Categories::where(['id' => $category, 'hidden' => 2])->count() == 1 && Db::table('indikator_news_relations')->where(['subscriber_id' => $subscriber->id, 'categories_id' => $data['category']])->count() == 0) {
-                    Db::table('indikator_news_relations')->insertGetId([
+                if (is_numeric($category) && Categories::where(['id' => $category, 'hidden' => 2])->count() == 1 && Db::table('holgerbaumann_news_relations')->where(['subscriber_id' => $subscriber->id, 'categories_id' => $data['category']])->count() == 0) {
+                    Db::table('holgerbaumann_news_relations')->insertGetId([
                         'subscriber_id' => $subscriber->id,
                         'categories_id' => $category
                     ]);
@@ -97,7 +97,7 @@ class Subscribe extends ComponentBase
         // Register category
         foreach ($data['category'] as $category) {
             if (is_numeric($category) && Categories::where(['id' => $category, 'hidden' => 2])->count() == 1) {
-                Db::table('indikator_news_relations')->insertGetId([
+                Db::table('holgerbaumann_news_relations')->insertGetId([
                     'subscriber_id' => $id,
                     'categories_id' => $category
                 ]);

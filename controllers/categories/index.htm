@@ -2,11 +2,11 @@
     <ul>
         <li><?= e(trans($this->pageTitle)) ?></li>
         <li>
-            <span class="text-info"><strong><?= Indikator\News\Models\Categories::where('status', 1)->count() ?></strong> <?= e(trans('indikator.news::lang.form.status_active')) ?></span>
+            <span class="text-info"><strong><?= HolgerBaumann\News\Models\Categories::where('status', 1)->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.form.status_active')) ?></span>
             &nbsp; | &nbsp;
-            <span class="text-danger"><strong><?= Indikator\News\Models\Categories::where('status', 2)->count() ?></strong> <?= e(trans('indikator.news::lang.form.status_inactive')) ?></span>
+            <span class="text-danger"><strong><?= HolgerBaumann\News\Models\Categories::where('status', 2)->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.form.status_inactive')) ?></span>
             &nbsp; | &nbsp;
-            <strong><?= Indikator\News\Models\Categories::where('hidden', 1)->count() ?></strong> <?= e(trans('indikator.news::lang.form.hidden')) ?>
+            <strong><?= HolgerBaumann\News\Models\Categories::where('hidden', 1)->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.form.hidden')) ?>
         </li>
     </ul>
 <?php Block::endPut() ?>

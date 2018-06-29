@@ -1,7 +1,7 @@
-<?php namespace Indikator\News\Components;
+<?php namespace HolgerBaumann\News\Components;
 
 use Cms\Classes\ComponentBase;
-use Indikator\News\Models\Posts as NewsPost;
+use HolgerBaumann\News\Models\Posts as NewsPost;
 use Redirect;
 use BackendAuth;
 
@@ -12,7 +12,7 @@ class Post extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'indikator.news::lang.component.post',
+            'name'        => 'holgerbaumann.news::lang.component.post',
             'description' => ''
         ];
     }
@@ -21,8 +21,8 @@ class Post extends ComponentBase
     {
         return [
             'slug' => [
-                'title'       => 'indikator.news::lang.settings.slug_title',
-                'description' => 'indikator.news::lang.settings.slug_description',
+                'title'       => 'holgerbaumann.news::lang.settings.slug_title',
+                'description' => 'holgerbaumann.news::lang.settings.slug_description',
                 'default'     => '{{ :slug }}',
                 'type'        => 'string'
             ]

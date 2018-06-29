@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Model;
 
@@ -10,11 +10,11 @@ class Categories extends Model
 
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
-    protected $table = 'indikator_news_categories';
+    protected $table = 'holgerbaumann_news_categories';
 
     public $rules = [
         'name'   => 'required',
-        'slug'   => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:indikator_news_categories'],
+        'slug'   => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:holgerbaumann_news_categories'],
         'status' => 'required|between:1,2|numeric',
         'hidden' => 'required|between:1,2|numeric'
     ];
@@ -25,8 +25,8 @@ class Categories extends Model
 
     public $belongsToMany = [
         'subscribers' => [
-            'Indikator\News\Models\Subscribers',
-            'table' => 'indikator_news_relations',
+            'HolgerBaumann\News\Models\Subscribers',
+            'table' => 'holgerbaumann_news_relations',
             'key'   => 'categories_id',
             'otherKey' => 'subscriber_id',
             'order' => 'name'

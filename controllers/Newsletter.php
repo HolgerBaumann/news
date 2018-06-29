@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
-use Indikator\News\Classes\Logger;
-use Indikator\News\Models\Logs;
+use HolgerBaumann\News\Classes\Logger;
+use HolgerBaumann\News\Models\Logs;
 use Redirect;
 use Request;
 

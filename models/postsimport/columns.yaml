@@ -4,15 +4,15 @@
 
 columns:
 
-    id: indikator.news::lang.form.id
-    title: indikator.news::lang.form.title
-    slug: indikator.news::lang.form.slug
-    introductory: indikator.news::lang.form.introductory
-    content: indikator.news::lang.form.content
-    image: indikator.news::lang.form.image
-    statistics: indikator.news::lang.stat.view
-    status: indikator.news::lang.form.status
-    featured: indikator.news::lang.form.featured
-    published_at: indikator.news::lang.form.published
-    created_at: indikator.news::lang.form.created
-    updated_at: indikator.news::lang.form.updated
+    id: holgerbaumann.news::lang.form.id
+    title: holgerbaumann.news::lang.form.title
+    slug: holgerbaumann.news::lang.form.slug
+    introductory: holgerbaumann.news::lang.form.introductory
+    content: holgerbaumann.news::lang.form.content
+    image: holgerbaumann.news::lang.form.image
+    statistics: holgerbaumann.news::lang.stat.view
+    status: holgerbaumann.news::lang.form.status
+    featured: holgerbaumann.news::lang.form.featured
+    published_at: holgerbaumann.news::lang.form.published
+    created_at: holgerbaumann.news::lang.form.created
+    updated_at: holgerbaumann.news::lang.form.updated

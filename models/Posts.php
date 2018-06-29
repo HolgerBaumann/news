@@ -1,10 +1,10 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Model;
 use BackendAuth;
 use Carbon\Carbon;
 use Cms\Classes\Page as CmsPage;
-use Indikator\News\Models\Categories as NewsCategories;
+use HolgerBaumann\News\Models\Categories as NewsCategories;
 use Url;
 use App;
 use Db;
@@ -16,11 +16,11 @@ class Posts extends Model
 
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
-    protected $table = 'indikator_news_posts';
+    protected $table = 'holgerbaumann_news_posts';
 
     public $rules = [
         'title'    => 'required',
-        'slug'     => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:indikator_news_posts'],
+        'slug'     => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:holgerbaumann_news_posts'],
         'status'   => 'required|between:1,3|numeric',
         'featured' => 'required|between:1,2|numeric'
     ];
@@ -54,42 +54,42 @@ class Posts extends Model
 
     public $belongsTo = [
         'category' => [
-            'Indikator\News\Models\Categories',
+            'HolgerBaumann\News\Models\Categories',
             'order' => 'name'
         ]
     ];
 
     public $hasMany = [
         'logs' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key' => 'news_id'
         ],
         'logs_queued_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'news_id',
             'scope' => 'isQueued',
             'count' => true
         ],
         'logs_send_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'news_id',
             'scope' => 'isSend',
             'count' => true
         ],
         'logs_viewed_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'news_id',
             'scope' => 'isViewed',
             'count' => true
         ],
         'logs_clicked_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'news_id',
             'scope' => 'isClicked',
             'count' => true
         ],
         'logs_failed_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'news_id',
             'scope' => 'isFailed',
             'count' => true
@@ -189,7 +189,7 @@ class Posts extends Model
             $default_locale = Db::table('rainlab_translate_locales')->where('is_default', 1)->value('code');
 
             if ($current_locale != $default_locale) {
-                $ids = Db::table('rainlab_translate_attributes')->where('model_type', 'Indikator\News\Models\Posts')->where('locale', $current_locale)->where('attribute_data', 'not like', '%"title":""%')->pluck('model_id')->toArray();
+                $ids = Db::table('rainlab_translate_attributes')->where('model_type', 'HolgerBaumann\News\Models\Posts')->where('locale', $current_locale)->where('attribute_data', 'not like', '%"title":""%')->pluck('model_id')->toArray();
                 $query->whereIn('id', $ids);
             }
         }
@@ -218,7 +218,7 @@ class Posts extends Model
     public function duplicate($post) {
 
         $clone = new Posts();
-        $clone->title = \Lang::get('indikator.news::lang.form.clone_of') . " " . $post->title;
+        $clone->title = \Lang::get('holgerbaumann.news::lang.form.clone_of') . " " . $post->title;
         $clone->slug = $post->slug . "-" . now()->format("Y-m-d-h-i-s");
         $clone->status = 3;
         $clone->introductory = $post->introductory;
@@ -228,7 +228,7 @@ class Posts extends Model
         $clone->featured = $post->featured;
         $clone->save();
 
-        \Event::fire('indikator.news.posts.duplicate', [&$clone, $post]);
+        \Event::fire('holgerbaumann.news.posts.duplicate', [&$clone, $post]);
 
         return $clone;
 

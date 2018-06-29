@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
-use Indikator\News\Models\Logs;
-use Indikator\News\Models\Subscribers;
-use Indikator\News\Models\Settings;
+use HolgerBaumann\News\Models\Logs;
+use HolgerBaumann\News\Models\Subscribers;
+use HolgerBaumann\News\Models\Settings;
 use Mail;
 use Event;
 use Backend;
@@ -57,7 +57,7 @@ class SendNews
                 if (Settings::get('click_tracking', true)) {
                     $body = preg_replace_callback('/href="(.*?)"/i', function ($r) use ($logEntry) {
                         return 'href="'
-                            . Backend::url('indikator/news/newsletter/open', [
+                            . Backend::url('holgerbaumann/news/newsletter/open', [
                                 'id'   => $logEntry->id,
                                 'hash' => $logEntry->hash
                             ])
@@ -67,7 +67,7 @@ class SendNews
 
                 // Add a image at the end of a message
                 if (Settings::get('email_view_tracking', false)) {
-                    $url = Backend::url('indikator/news/newsletter/image', [
+                    $url = Backend::url('holgerbaumann/news/newsletter/image', [
                         'id'   => $logEntry->id,
                         'hash' => $logEntry->hash.'.png'
                     ]);

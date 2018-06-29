@@ -6,25 +6,25 @@ foreach ($pages as $page) {
 }
 
 $uri = explode('/', Request::path());
-$slug = \Indikator\News\Models\Posts::whereId($uri[5])->value('slug');
+$slug = \HolgerBaumann\News\Models\Posts::whereId($uri[5])->value('slug');
 
 ?>
 
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('indikator/news/posts') ?>"><?= e(trans('indikator.news::lang.menu.posts')) ?></a></li>
+        <li><a href="<?= Backend::url('holgerbaumann/news/posts') ?>"><?= e(trans('holgerbaumann.news::lang.menu.posts')) ?></a></li>
         <li><?= ucfirst(e(trans($this->pageTitle))) ?></li>
         <?php if (!$this->fatalError): ?>
         <li>
-            <strong><?= $formModel->logs_queued_count()->count() ?></strong> <?= e(trans('indikator.news::lang.stat.queued')) ?>
+            <strong><?= $formModel->logs_queued_count()->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.queued')) ?>
             &nbsp; | &nbsp;
-            <span class="text-warning"><strong><?= $formModel->logs_send_count()->count() ?></strong> <?= e(trans('indikator.news::lang.stat.send')) ?></span>
+            <span class="text-warning"><strong><?= $formModel->logs_send_count()->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.send')) ?></span>
             &nbsp; | &nbsp;
-            <span class="text-info"><strong><?= $formModel->logs_viewed_count()->count() ?></strong> <?= e(trans('indikator.news::lang.stat.view')) ?></span>
+            <span class="text-info"><strong><?= $formModel->logs_viewed_count()->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.view')) ?></span>
             &nbsp; | &nbsp;
-            <span class="text-success"><strong><?= $formModel->logs_clicked_count()->count() ?></strong> <?= e(trans('indikator.news::lang.stat.click')) ?></span>
+            <span class="text-success"><strong><?= $formModel->logs_clicked_count()->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.click')) ?></span>
             &nbsp; | &nbsp;
-            <span class="text-danger"><strong><?= $formModel->logs_failed_count()->count() ?></strong> <?= e(trans('indikator.news::lang.stat.failed')) ?></span>
+            <span class="text-danger"><strong><?= $formModel->logs_failed_count()->count() ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.failed')) ?></span>
         </li>
         <?php endif ?>
     </ul>
@@ -65,44 +65,44 @@ $slug = \Indikator\News\Models\Posts::whereId($uri[5])->value('slug');
                     data-request-confirm="<?= e(trans('system::lang.mail_templates.test_confirm', [ 'email' => e(BackendAuth::getUser()->email)])) ?>"
                     data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
                     class="btn btn-info">
-                    <?= e(trans('indikator.news::lang.button.test')) ?>
+                    <?= e(trans('holgerbaumann.news::lang.button.test')) ?>
                 </button>
                 <?php if ($formModel->last_send_at == null) : ?>
                 <button
                     type="button"
                     data-request="onNewsSend"
-                    data-request-confirm="<?= e(trans('indikator.news::lang.button.send_confirmation')) ?>"
+                    data-request-confirm="<?= e(trans('holgerbaumann.news::lang.button.send_confirmation')) ?>"
                     data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
                     class="btn btn-info">
-                    <?= e(trans('indikator.news::lang.button.send')) ?>
+                    <?= e(trans('holgerbaumann.news::lang.button.send')) ?>
                 </button>
                 <?php else : ?>
                 <button
                     type="button"
                     data-request="onNewsResend"
-                    data-request-confirm="<?= e(trans('indikator.news::lang.button.resend_confirmation')) ?>"
+                    data-request-confirm="<?= e(trans('holgerbaumann.news::lang.button.resend_confirmation')) ?>"
                     data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
                     class="btn btn-info">
-                    <?= e(trans('indikator.news::lang.button.resend')) ?>
+                    <?= e(trans('holgerbaumann.news::lang.button.resend')) ?>
                 </button>
                 <?php endif ?>
 
-                <?= $this->fireViewEvent('indikator.news.extendPostUpdateViewButtons', [$formModel]) ?>
+                <?= $this->fireViewEvent('holgerbaumann.news.extendPostUpdateViewButtons', [$formModel]) ?>
                 <span class="btn-text">
-                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('indikator/news/posts') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('holgerbaumann/news/posts') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
                 <button
                     data-request="onDelete"
                     data-load-indicator="<?= e(trans('backend::lang.form.deleting_name', ['name'=>$formRecordName])) ?>"
-                    data-request-confirm="<?= e(trans('indikator.news::lang.flash.delete')) ?>"
+                    data-request-confirm="<?= e(trans('holgerbaumann.news::lang.flash.delete')) ?>"
                     class="oc-icon-trash-o btn-icon danger pull-right">
                 </button>
 
                 <button
                         data-request="onClonePosts"
                         data-request-data="id:<?= $formModel->id?>"
-                        data-load-indicator="<?= e(trans('indikator.news::lang.form.news_cloning', ['name'=>$formModel->title])) ?>"
-                        data-request-confirm="<?= e(trans('indikator.news::lang.flash.news_clone_confirm')) ?>"
+                        data-load-indicator="<?= e(trans('holgerbaumann.news::lang.form.news_cloning', ['name'=>$formModel->title])) ?>"
+                        data-request-confirm="<?= e(trans('holgerbaumann.news::lang.flash.news_clone_confirm')) ?>"
                         class="oc-icon-clone btn-icon pull-right">
                 </button>
 
@@ -134,6 +134,6 @@ $slug = \Indikator\News\Models\Posts::whereId($uri[5])->value('slug');
     </div>
     <div class="padded-container">
         <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-        <p><a href="<?= Backend::url('indikator/news/posts') ?>" class="btn btn-default"><?= e(trans('indikator.news::lang.button.return')) ?></a></p>
+        <p><a href="<?= Backend::url('holgerbaumann/news/posts') ?>" class="btn btn-default"><?= e(trans('holgerbaumann.news::lang.button.return')) ?></a></p>
     </div>
 <?php endif ?>

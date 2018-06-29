@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Updates;
+<?php namespace HolgerBaumann\News\Updates;
 
 use October\Rain\Database\Updates\Migration;
 use Schema;
@@ -7,7 +7,7 @@ class CreateCategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('indikator_news_categories', function($table)
+        Schema::create('holgerbaumann_news_categories', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('indikator_news_relations', function($table)
+        Schema::create('holgerbaumann_news_relations', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('subscriber_id')->unsigned();
@@ -32,7 +32,7 @@ class CreateCategoriesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('indikator_news_categories');
-        Schema::dropIfExists('indikator_news_relations');
+        Schema::dropIfExists('holgerbaumann_news_categories');
+        Schema::dropIfExists('holgerbaumann_news_relations');
     }
 }

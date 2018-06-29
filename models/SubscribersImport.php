@@ -1,12 +1,12 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Backend\Models\ImportModel;
-use Indikator\News\Models\Subscribers as Item;
+use HolgerBaumann\News\Models\Subscribers as Item;
 use Exception;
 
 class SubscribersImport extends ImportModel
 {
-    public $table = 'indikator_news_subscribers';
+    public $table = 'holgerbaumann_news_subscribers';
 
     public $rules = [
         'email' => 'required|email'

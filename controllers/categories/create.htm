@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('indikator/news/categories') ?>"><?= e(trans('indikator.news::lang.menu.categories')) ?></a></li>
+        <li><a href="<?= Backend::url('holgerbaumann/news/categories') ?>"><?= e(trans('holgerbaumann.news::lang.menu.categories')) ?></a></li>
         <li><?= e(trans($this->pageTitle)) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -36,7 +36,7 @@
                     <?= e(trans('backend::lang.form.create_and_close')) ?>
                 </button>
                 <span class="btn-text">
-                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('indikator/news/categories') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('holgerbaumann/news/categories') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
             </div>
         </div>
@@ -70,6 +70,6 @@
     </div>
     <div class="padded-container">
         <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-        <p><a href="<?= Backend::url('indikator/news/categories') ?>" class="btn btn-default"><?= e(trans('indikator.news::lang.button.return')) ?></a></p>
+        <p><a href="<?= Backend::url('holgerbaumann/news/categories') ?>" class="btn btn-default"><?= e(trans('holgerbaumann.news::lang.button.return')) ?></a></p>
     </div>
 <?php endif ?>

@@ -5,53 +5,53 @@
 fields:
 
     main_section:
-        label: indikator.news::lang.backend_settings.main_section
-        comment: indikator.news::lang.backend_settings.main_section_comment
+        label: holgerbaumann.news::lang.backend_settings.main_section
+        comment: holgerbaumann.news::lang.backend_settings.main_section_comment
         type: section
 
     click_tracking:
-        label: indikator.news::lang.backend_settings.click_tracking
-        comment: indikator.news::lang.backend_settings.click_tracking_comment
+        label: holgerbaumann.news::lang.backend_settings.click_tracking
+        comment: holgerbaumann.news::lang.backend_settings.click_tracking_comment
         type: switch
         default: true
         span: left
 
     email_view_tracking:
-        label: indikator.news::lang.backend_settings.email_view_tracking
-        comment: indikator.news::lang.backend_settings.email_view_tracking_comment
+        label: holgerbaumann.news::lang.backend_settings.email_view_tracking
+        comment: holgerbaumann.news::lang.backend_settings.email_view_tracking_comment
         type: switch
         default: false
         span: right
 
     email_view_tracking_warning:
         type: partial
-        path: $/indikator/news/models/settings/_email_view_tracking_warning.htm
+        path: $/holgerbaumann/news/models/settings/_email_view_tracking_warning.htm
         span: right
 
     statistic_section:
-        label: indikator.news::lang.backend_settings.statistic_section
+        label: holgerbaumann.news::lang.backend_settings.statistic_section
         type: section
 
     statistic_show_posts:
-        label: indikator.news::lang.backend_settings.statistic_show_posts
+        label: holgerbaumann.news::lang.backend_settings.statistic_show_posts
         type: switch
         default: true
         span: auto
 
     statistic_show_mails:
-        label: indikator.news::lang.backend_settings.statistic_show_mails
+        label: holgerbaumann.news::lang.backend_settings.statistic_show_mails
         type: switch
         default: true
         span: auto
 
     statistic_show_longest_posts:
-        label: indikator.news::lang.backend_settings.statistic_show_longest_posts
+        label: holgerbaumann.news::lang.backend_settings.statistic_show_longest_posts
         type: switch
         default: true
         span: auto
 
     statistic_show_shortest_posts:
-        label: indikator.news::lang.backend_settings.statistic_show_shortest_posts
+        label: holgerbaumann.news::lang.backend_settings.statistic_show_shortest_posts
         type: switch
         default: true
         span: auto

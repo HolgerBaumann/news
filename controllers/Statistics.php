@@ -1,22 +1,22 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use Indikator\News\Models\Logs;
-use Indikator\News\Models\Posts;
-use Indikator\News\Models\Settings;
+use HolgerBaumann\News\Models\Logs;
+use HolgerBaumann\News\Models\Posts;
+use HolgerBaumann\News\Models\Settings;
 use Db;
 use Backend;
 
 class Statistics extends Controller
 {
-    public $requiredPermissions = ['indikator.news.statistics'];
+    public $requiredPermissions = ['holgerbaumann.news.statistics'];
 
     public function __construct()
     {
         parent::__construct();
 
-        BackendMenu::setContext('Indikator.News', 'news', 'statistics');
+        BackendMenu::setContext('HolgerBaumann.News', 'news', 'statistics');
     }
 
     public function index()
@@ -24,7 +24,7 @@ class Statistics extends Controller
         $this->prepareLog();
         $this->prepareGraphs();
 
-        $this->pageTitle = 'indikator.news::lang.menu.statistics';
+        $this->pageTitle = 'holgerbaumann.news::lang.menu.statistics';
     }
 
     protected function prepareGraphs()
@@ -70,7 +70,7 @@ class Statistics extends Controller
                     '.$index.'.
                 </div>
                 <div class="col-md-9 col-sm-9">
-                    <a href="'.Backend::url('indikator/news/posts/update/'.$item->id).'">'.$item->title.'</a>
+                    <a href="'.Backend::url('holgerbaumann/news/posts/update/'.$item->id).'">'.$item->title.'</a>
                 </div>
                 <div class="col-md-2 col-sm-2 text-right">
                     '.number_format($item->statistics, 0, '.', ' ').'
@@ -111,7 +111,7 @@ class Statistics extends Controller
                         '.$index.'.
                     </div>
                     <div class="col-md-9 col-sm-9">
-                        <a href="'.Backend::url('indikator/news/posts/update/'.$item->id).'">'.$item->title.'</a>
+                        <a href="'.Backend::url('holgerbaumann/news/posts/update/'.$item->id).'">'.$item->title.'</a>
                     </div>
                     <div class="col-md-2 col-sm-2 text-right">
                         '.number_format($length, 0, '.', ' ').'
@@ -144,7 +144,7 @@ class Statistics extends Controller
                         '.$index.'.
                     </div>
                     <div class="col-md-9 col-sm-9">
-                        <a href="'.Backend::url('indikator/news/posts/update/'.$item->id).'">'.$item->title.'</a>
+                        <a href="'.Backend::url('holgerbaumann/news/posts/update/'.$item->id).'">'.$item->title.'</a>
                     </div>
                     <div class="col-md-2 col-sm-2 text-right">
                         '.number_format($length, 0, '.', ' ').'
@@ -165,14 +165,14 @@ class Statistics extends Controller
 
     protected function prepareLog()
     {
-        $log['queued'] = Db::table('indikator_news_newsletter_logs')
+        $log['queued'] = Db::table('holgerbaumann_news_newsletter_logs')
             ->select(Db::raw("count(id) as c, YEAR(queued_at) as y, MONTH(queued_at) as m"))
             ->groupBy(Db::raw("YEAR(queued_at), MONTH(queued_at)"))
             ->orderBy('y')
             ->orderBy('m')
             ->get();
 
-        $log['send'] = Db::table('indikator_news_newsletter_logs')
+        $log['send'] = Db::table('holgerbaumann_news_newsletter_logs')
             ->select(Db::raw("count(id) as c, YEAR(send_at) as y, MONTH(send_at) as m"))
             ->whereNotNull('send_at')
             ->groupBy(Db::raw("YEAR(send_at), MONTH(send_at)"))
@@ -180,7 +180,7 @@ class Statistics extends Controller
             ->orderBy('m')
             ->get();
 
-        $log['viewed'] = Db::table('indikator_news_newsletter_logs')
+        $log['viewed'] = Db::table('holgerbaumann_news_newsletter_logs')
             ->select(Db::raw("count(id) as c, YEAR(viewed_at) as y, MONTH(viewed_at) as m"))
             ->whereNotNull('viewed_at')
             ->groupBy(Db::raw("YEAR(viewed_at), MONTH(viewed_at)"))
@@ -188,7 +188,7 @@ class Statistics extends Controller
             ->orderBy('m')
             ->get();
 
-        $log['clicked'] = Db::table('indikator_news_newsletter_logs')
+        $log['clicked'] = Db::table('holgerbaumann_news_newsletter_logs')
             ->select(Db::raw("count(id) as c, YEAR(clicked_at) as y, MONTH(clicked_at) as m"))
             ->whereNotNull('clicked_at')
             ->groupBy(Db::raw("YEAR(clicked_at), MONTH(clicked_at)"))
@@ -219,7 +219,7 @@ class Statistics extends Controller
         $this->vars['logResults'] = $result;
         $this->vars['logResultsFields'] = array_keys($log);
         $this->vars['logResultsFieldsTrans'] = array_map(function($t) {
-            return trans('indikator.news::lang.stat.'.$t);
+            return trans('holgerbaumann.news::lang.stat.'.$t);
         }, array_keys($log));
     }
 }

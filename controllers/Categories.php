@@ -1,9 +1,9 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use Indikator\News\Models\Categories as Item;
-use Indikator\News\Models\Posts;
+use HolgerBaumann\News\Models\Categories as Item;
+use HolgerBaumann\News\Models\Posts;
 use Db;
 use Flash;
 use Lang;
@@ -20,7 +20,7 @@ class Categories extends Controller
     public $listConfig = 'config_list.yaml';
     public $reorderConfig = 'config_reorder.yaml';
 
-    public $requiredPermissions = ['indikator.news.categories'];
+    public $requiredPermissions = ['holgerbaumann.news.categories'];
 
     public $bodyClass = 'compact-container';
 
@@ -28,7 +28,7 @@ class Categories extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Indikator.News', 'news', 'categories');
+        BackendMenu::setContext('HolgerBaumann.News', 'news', 'categories');
     }
 
     public function onDeactivate()
@@ -42,7 +42,7 @@ class Categories extends Controller
                 $item->update(['hidden' => 2]);
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.deactivate'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.deactivate'));
         }
 
         return $this->listRefresh();
@@ -59,10 +59,10 @@ class Categories extends Controller
                 $item->delete();
 
                 Posts::where('category_id', $itemId)->update(['category_id' => 0]);
-                Db::table('indikator_news_relations')->where('categories_id', $itemId)->delete();
+                Db::table('holgerbaumann_news_relations')->where('categories_id', $itemId)->delete();
             }
 
-            Flash::success(Lang::get('indikator.news::lang.flash.remove'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.remove'));
         }
 
         return $this->listRefresh();

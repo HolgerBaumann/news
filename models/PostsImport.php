@@ -1,16 +1,16 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Backend\Models\ImportModel;
-use Indikator\News\Models\Posts as Item;
+use HolgerBaumann\News\Models\Posts as Item;
 use Exception;
 
 class PostsImport extends ImportModel
 {
-    public $table = 'indikator_news_posts';
+    public $table = 'holgerbaumann_news_posts';
 
     public $rules = [
         'title' => 'required',
-        'slug'  => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:indikator_news_posts']
+        'slug'  => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:holgerbaumann_news_posts']
     ];
 
     public function importData($results, $sessionKey = null)

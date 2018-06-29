@@ -5,48 +5,48 @@
 columns:
 
     id:
-        label: indikator.news::lang.form.id
+        label: holgerbaumann.news::lang.form.id
         invisible: true
 
     name:
-        label: indikator.news::lang.form.name
+        label: holgerbaumann.news::lang.form.name
         searchable: true
 
     email:
-        label: indikator.news::lang.form.email
+        label: holgerbaumann.news::lang.form.email
         searchable: true
 
     common:
-        label: indikator.news::lang.form.comment
+        label: holgerbaumann.news::lang.form.comment
         searchable: true
         invisible: true
 
     locale:
-        label: indikator.news::lang.form.locale
+        label: holgerbaumann.news::lang.form.locale
         searchable: true
         invisible: true
         type: partial
-        path: ~/plugins/indikator/news/models/subscribers/_locale.htm
+        path: ~/plugins/holgerbaumann/news/models/subscribers/_locale.htm
 
     statistics:
-        label: indikator.news::lang.stat.mail
+        label: holgerbaumann.news::lang.stat.mail
         searchable: true
         type: partial
-        path: ~/plugins/indikator/news/models/subscribers/_statistics.htm
+        path: ~/plugins/holgerbaumann/news/models/subscribers/_statistics.htm
 
     status:
-        label: indikator.news::lang.form.status
+        label: holgerbaumann.news::lang.form.status
         searchable: true
         type: partial
-        path: ~/plugins/indikator/news/models/subscribers/_status.htm
+        path: ~/plugins/holgerbaumann/news/models/subscribers/_status.htm
 
     created_at:
-        label: indikator.news::lang.form.created
+        label: holgerbaumann.news::lang.form.created
         searchable: true
         type: datetime
 
     updated_at:
-        label: indikator.news::lang.form.updated
+        label: holgerbaumann.news::lang.form.updated
         searchable: true
         invisible: true
         type: datetime

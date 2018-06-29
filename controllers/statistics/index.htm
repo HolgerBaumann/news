@@ -1,12 +1,12 @@
 
 <div class="control-breadcrumb">
     <ul>
-        <li><?= e(trans('indikator.news::lang.menu.statistics')) ?></li>
+        <li><?= e(trans('holgerbaumann.news::lang.menu.statistics')) ?></li>
         <li>
-            <span class="text-info"><strong><?= Indikator\News\Models\Posts::count() ?></strong> <?= e(trans_choice('indikator.news::lang.stat.posts', Indikator\News\Models\Posts::count())) ?></span>
+            <span class="text-info"><strong><?= HolgerBaumann\News\Models\Posts::count() ?></strong> <?= e(trans_choice('holgerbaumann.news::lang.stat.posts', HolgerBaumann\News\Models\Posts::count())) ?></span>
             <?php if ($view > 0): ?>
             &nbsp; | &nbsp;
-            <span class="text-danger"><strong><?= number_format($view, 0, '.', ' ') ?></strong> <?= e(trans('indikator.news::lang.stat.view')) ?></span>
+            <span class="text-danger"><strong><?= number_format($view, 0, '.', ' ') ?></strong> <?= e(trans('holgerbaumann.news::lang.stat.view')) ?></span>
             <?php endif ?>
         </li>
     </ul>
@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="field-section">
-                <h4><?= e(trans('indikator.news::lang.menu.posts')) ?></h4>
+                <h4><?= e(trans('holgerbaumann.news::lang.menu.posts')) ?></h4>
             </div>
             <br>
         </div>
@@ -33,7 +33,7 @@
         </div>
         <?php if ($view > 0): ?>
             <div class="col-md-6">
-              <strong><?= e(trans('indikator.news::lang.stat.top')) ?></strong>
+              <strong><?= e(trans('holgerbaumann.news::lang.stat.top')) ?></strong>
               <div class="clearfix"></div><br>
               <?= $top ?>
               <br>
@@ -41,7 +41,7 @@
             <div class="clearfix"></div>
             <?php if (isset($longest)): ?>
                 <div class="col-md-6">
-                    <strong><?= e(trans('indikator.news::lang.stat.longest')) ?></strong>
+                    <strong><?= e(trans('holgerbaumann.news::lang.stat.longest')) ?></strong>
                     <div class="clearfix"></div><br>
                     <?= $longest ?>
                     <br>
@@ -49,7 +49,7 @@
             <?php endif ?>
             <?php if (isset($shortest)): ?>
                 <div class="col-md-6">
-                    <strong><?= e(trans('indikator.news::lang.stat.shortest')) ?></strong>
+                    <strong><?= e(trans('holgerbaumann.news::lang.stat.shortest')) ?></strong>
                     <div class="clearfix"></div><br>
                     <?= $shortest ?>
                     <br>
@@ -58,13 +58,13 @@
         <?php else: ?>
             <div class="col-md-6">
                 <?php if (isset($longest)): ?>
-                    <strong><?= e(trans('indikator.news::lang.stat.longest')) ?></strong>
+                    <strong><?= e(trans('holgerbaumann.news::lang.stat.longest')) ?></strong>
                     <div class="clearfix"></div><br>
                     <?= $longest ?>
                     <br>
                 <?php endif ?>
                 <?php if (isset($shortest)): ?>
-                    <strong><?= e(trans('indikator.news::lang.stat.shortest')) ?></strong>
+                    <strong><?= e(trans('holgerbaumann.news::lang.stat.shortest')) ?></strong>
                     <div class="clearfix"></div><br>
                     <?= $shortest ?>
                     <br>
@@ -78,16 +78,16 @@
         <div class="col-md-12">
             <br>
             <div class="field-section">
-                <h4><?= e(trans('indikator.news::lang.menu.logs')) ?></h4>
+                <h4><?= e(trans('holgerbaumann.news::lang.menu.logs')) ?></h4>
             </div>
             <br>
         </div>
         <div class="col-md-6">
-            <strong><?= e(trans('indikator.news::lang.stat.log.events')) ?></strong>
+            <strong><?= e(trans('holgerbaumann.news::lang.stat.log.events')) ?></strong>
             <div id="log-this-year"></div>
         </div>
         <div class="col-md-6">
-            <strong><?= e(trans('indikator.news::lang.stat.log.summary')) ?></strong>
+            <strong><?= e(trans('holgerbaumann.news::lang.stat.log.summary')) ?></strong>
             <div id="log-overall"></div>
         </div>
     </div>

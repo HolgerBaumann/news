@@ -2,16 +2,16 @@
 #  Form Behavior Config
 # ===================================
 
-name: indikator.news::lang.title.subscribers
-form: ~/plugins/indikator/news/models/subscribers/fields.yaml
+name: holgerbaumann.news::lang.title.subscribers
+form: ~/plugins/holgerbaumann/news/models/subscribers/fields.yaml
 
-modelClass: Indikator\News\Models\Subscribers
-defaultRedirect: indikator/news/subscribers
+modelClass: HolgerBaumann\News\Models\Subscribers
+defaultRedirect: holgerbaumann/news/subscribers
 
 create:
-    redirect: indikator/news/subscribers/update/:id
-    redirectClose: indikator/news/subscribers
+    redirect: holgerbaumann/news/subscribers/update/:id
+    redirectClose: holgerbaumann/news/subscribers
 
 update:
-    redirect: indikator/news/subscribers/update/:id
-    redirectClose: indikator/news/subscribers
+    redirect: holgerbaumann/news/subscribers/update/:id
+    redirectClose: holgerbaumann/news/subscribers

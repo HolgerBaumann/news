@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
 use App;
 use File;
@@ -10,10 +10,10 @@ use Db;
 use Jenssegers\Date\Date;
 use Illuminate\Support\Collection;
 use System\Classes\PluginManager;
-use Indikator\News\Models\Logs;
-use Indikator\News\Models\Posts;
-use Indikator\News\Models\Categories;
-use Indikator\News\Models\Subscribers;
+use HolgerBaumann\News\Models\Logs;
+use HolgerBaumann\News\Models\Posts;
+use HolgerBaumann\News\Models\Categories;
+use HolgerBaumann\News\Models\Subscribers;
 
 class NewsSender
 {
@@ -35,7 +35,7 @@ class NewsSender
     /**
      * @var string namespace of the template
      */
-    protected $templateNamespace = 'indikator.news::mail.email_';
+    protected $templateNamespace = 'holgerbaumann.news::mail.email_';
 
     /**
      * @var bool if the sending should be queued.
@@ -71,7 +71,7 @@ class NewsSender
         $langs = [$locale, App::getLocale(), 'en'];
 
         foreach ($langs as $lang) {
-            if (File::exists(base_path().'/plugins/indikator/news/views/mail/email_'.$lang.'.htm')) {
+            if (File::exists(base_path().'/plugins/holgerbaumann/news/views/mail/email_'.$lang.'.htm')) {
                 return $this->templateNamespace.$lang;
             }
         }
@@ -215,7 +215,7 @@ class NewsSender
         $logEntry = Logger::queued($this->news->id, $receiver->id);
 
         if ($this->queued) {
-            $qId = Queue::push('\Indikator\News\Classes\SendNews', [
+            $qId = Queue::push('\HolgerBaumann\News\Classes\SendNews', [
                 'template' => $template,
                 'params'   => $params,
                 'receiver' => $receiver,

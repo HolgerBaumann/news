@@ -1,9 +1,9 @@
-<?php namespace Indikator\News\Components;
+<?php namespace HolgerBaumann\News\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use Lang;
-use Indikator\News\Models\Categories as NewsCategories;
+use HolgerBaumann\News\Models\Categories as NewsCategories;
 
 class Categories extends ComponentBase
 {
@@ -16,7 +16,7 @@ class Categories extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'indikator.news::lang.component.categories',
+            'name'        => 'holgerbaumann.news::lang.component.categories',
             'description' => ''
         ];
     }
@@ -25,15 +25,15 @@ class Categories extends ComponentBase
     {
         return [
             'noPostsMessage' => [
-                'title'             => 'indikator.news::lang.settings.no_posts_title',
-                'description'       => 'indikator.news::lang.settings.no_posts_description',
+                'title'             => 'holgerbaumann.news::lang.settings.no_posts_title',
+                'description'       => 'holgerbaumann.news::lang.settings.no_posts_description',
                 'type'              => 'string',
-                'default'           => Lang::get('indikator.news::lang.settings.no_posts_found'),
+                'default'           => Lang::get('holgerbaumann.news::lang.settings.no_posts_found'),
                 'showExternalParam' => false
             ],
             'categoryPage' => [
-                'title'       => 'indikator.news::lang.settings.category_page_title',
-                'description' => 'indikator.news::lang.settings.category_page_description',
+                'title'       => 'holgerbaumann.news::lang.settings.category_page_title',
+                'description' => 'holgerbaumann.news::lang.settings.category_page_description',
                 'type'        => 'dropdown',
                 'default'     => ''
             ]

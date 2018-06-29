@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Model;
 
@@ -6,7 +6,7 @@ class Subscribers extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    protected $table = 'indikator_news_subscribers';
+    protected $table = 'holgerbaumann_news_subscribers';
 
     public $rules = [
         'email'  => 'required|email',
@@ -15,8 +15,8 @@ class Subscribers extends Model
 
     public $belongsToMany = [
         'categories' => [
-            'Indikator\News\Models\Categories',
-            'table' => 'indikator_news_relations',
+            'HolgerBaumann\News\Models\Categories',
+            'table' => 'holgerbaumann_news_relations',
             'key'   => 'subscriber_id',
             'order' => 'name'
         ]
@@ -24,35 +24,35 @@ class Subscribers extends Model
 
     public $hasMany = [
         'logs' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key' => 'subscriber_id'
         ],
         'logs_queued_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'subscriber_id',
             'scope' => 'isQueued',
             'count' => true
         ],
         'logs_send_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'subscriber_id',
             'scope' => 'isSend',
             'count' => true
         ],
         'logs_viewed_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'subscriber_id',
             'scope' => 'isViewed',
             'count' => true
         ],
         'logs_clicked_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'subscriber_id',
             'scope' => 'isClicked',
             'count' => true
         ],
         'logs_failed_count' => [
-            'Indikator\News\Models\Logs',
+            'HolgerBaumann\News\Models\Logs',
             'key'   => 'subscriber_id',
             'scope' => 'isFailed',
             'count' => true

@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Controllers;
+<?php namespace HolgerBaumann\News\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -9,7 +9,7 @@ class Logs extends Controller
         \Backend\Behaviors\ListController::class
     ];
 
-    public $requiredPermissions = ['indikator.news.logs'];
+    public $requiredPermissions = ['holgerbaumann.news.logs'];
 
     public $listConfig = 'config_list.yaml';
 
@@ -17,6 +17,6 @@ class Logs extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Indikator.News', 'news', 'logs');
+        BackendMenu::setContext('HolgerBaumann.News', 'news', 'logs');
     }
 }

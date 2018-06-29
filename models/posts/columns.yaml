@@ -5,65 +5,65 @@
 columns:
 
     id:
-        label: indikator.news::lang.form.id
+        label: holgerbaumann.news::lang.form.id
         invisible: true
 
     image:
-        label: indikator.news::lang.form.image
+        label: holgerbaumann.news::lang.form.image
         sortable: false
         invisible: true
         type: partial
-        path: ~/plugins/indikator/news/models/posts/_image.htm
+        path: ~/plugins/holgerbaumann/news/models/posts/_image.htm
 
     title:
-        label: indikator.news::lang.form.title
+        label: holgerbaumann.news::lang.form.title
         searchable: true
 
     slug:
-        label: indikator.news::lang.form.slug
+        label: holgerbaumann.news::lang.form.slug
         searchable: true
         invisible: true
 
     statistics:
-        label: indikator.news::lang.stat.viewed
+        label: holgerbaumann.news::lang.stat.viewed
 
     length:
-        label: indikator.news::lang.form.length
+        label: holgerbaumann.news::lang.form.length
         sortable: false
         type: partial
-        path: ~/plugins/indikator/news/models/posts/_length.htm
+        path: ~/plugins/holgerbaumann/news/models/posts/_length.htm
 
     featured:
-        label: indikator.news::lang.form.featured
+        label: holgerbaumann.news::lang.form.featured
         searchable: true
         invisible: true
         type: partial
-        path: ~/plugins/indikator/news/models/posts/_featured.htm
+        path: ~/plugins/holgerbaumann/news/models/posts/_featured.htm
 
     status:
-        label: indikator.news::lang.form.status
+        label: holgerbaumann.news::lang.form.status
         searchable: true
         type: partial
-        path: ~/plugins/indikator/news/models/posts/_status.htm
+        path: ~/plugins/holgerbaumann/news/models/posts/_status.htm
 
     last_send_at:
-        label: indikator.news::lang.form.last_send
+        label: holgerbaumann.news::lang.form.last_send
         searchable: true
         type: timesince
 
     published_at:
-        label: indikator.news::lang.form.published
+        label: holgerbaumann.news::lang.form.published
         searchable: true
         type: datetime
 
     created_at:
-        label: indikator.news::lang.form.created
+        label: holgerbaumann.news::lang.form.created
         searchable: true
         invisible: true
         type: datetime
 
     updated_at:
-        label: indikator.news::lang.form.updated
+        label: holgerbaumann.news::lang.form.updated
         searchable: true
         invisible: true
         type: datetime

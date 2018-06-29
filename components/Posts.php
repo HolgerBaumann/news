@@ -1,10 +1,10 @@
-<?php namespace Indikator\News\Components;
+<?php namespace HolgerBaumann\News\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use Lang;
-use Indikator\News\Models\Posts as NewsPost;
-use Indikator\News\Models\Categories as NewsCategory;
+use HolgerBaumann\News\Models\Posts as NewsPost;
+use HolgerBaumann\News\Models\Categories as NewsCategory;
 use Redirect;
 
 class Posts extends ComponentBase
@@ -24,7 +24,7 @@ class Posts extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'indikator.news::lang.component.posts',
+            'name'        => 'holgerbaumann.news::lang.component.posts',
             'description' => ''
         ];
     }
@@ -33,77 +33,77 @@ class Posts extends ComponentBase
     {
         return [
             'pageNumber' => [
-                'title'       => 'indikator.news::lang.settings.pagination_title',
-                'description' => 'indikator.news::lang.settings.pagination_description',
+                'title'       => 'holgerbaumann.news::lang.settings.pagination_title',
+                'description' => 'holgerbaumann.news::lang.settings.pagination_description',
                 'type'        => 'string',
                 'default'     => '{{ :page }}'
             ],
             'postsPerPage' => [
-                'title'             => 'indikator.news::lang.settings.per_page_title',
+                'title'             => 'holgerbaumann.news::lang.settings.per_page_title',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
-                'validationMessage' => 'indikator.news::lang.settings.per_page_validation',
+                'validationMessage' => 'holgerbaumann.news::lang.settings.per_page_validation',
                 'default'           => '10'
             ],
             'noPostsMessage' => [
-                'title'             => 'indikator.news::lang.settings.no_posts_title',
-                'description'       => 'indikator.news::lang.settings.no_posts_description',
+                'title'             => 'holgerbaumann.news::lang.settings.no_posts_title',
+                'description'       => 'holgerbaumann.news::lang.settings.no_posts_description',
                 'type'              => 'string',
-                'default'           => Lang::get('indikator.news::lang.settings.no_posts_found'),
+                'default'           => Lang::get('holgerbaumann.news::lang.settings.no_posts_found'),
                 'showExternalParam' => false
             ],
             'sortOrder' => [
-                'title'       => 'indikator.news::lang.settings.posts_order_title',
-                'description' => 'indikator.news::lang.settings.posts_order_description',
+                'title'       => 'holgerbaumann.news::lang.settings.posts_order_title',
+                'description' => 'holgerbaumann.news::lang.settings.posts_order_description',
                 'type'        => 'dropdown',
                 'default'     => 'published_at desc',
                 'options'     => [
-                    'title asc'         => Lang::get('indikator.news::lang.sorting.title_asc'),
-                    'title desc'        => Lang::get('indikator.news::lang.sorting.title_desc'),
-                    'created_at asc'    => Lang::get('indikator.news::lang.sorting.created_at_asc'),
-                    'created_at desc'   => Lang::get('indikator.news::lang.sorting.created_at_desc'),
-                    'updated_at asc'    => Lang::get('indikator.news::lang.sorting.updated_at_asc'),
-                    'updated_at desc'   => Lang::get('indikator.news::lang.sorting.updated_at_desc'),
-                    'published_at asc'  => Lang::get('indikator.news::lang.sorting.published_at_asc'),
-                    'published_at desc' => Lang::get('indikator.news::lang.sorting.published_at_desc')
+                    'title asc'         => Lang::get('holgerbaumann.news::lang.sorting.title_asc'),
+                    'title desc'        => Lang::get('holgerbaumann.news::lang.sorting.title_desc'),
+                    'created_at asc'    => Lang::get('holgerbaumann.news::lang.sorting.created_at_asc'),
+                    'created_at desc'   => Lang::get('holgerbaumann.news::lang.sorting.created_at_desc'),
+                    'updated_at asc'    => Lang::get('holgerbaumann.news::lang.sorting.updated_at_asc'),
+                    'updated_at desc'   => Lang::get('holgerbaumann.news::lang.sorting.updated_at_desc'),
+                    'published_at asc'  => Lang::get('holgerbaumann.news::lang.sorting.published_at_asc'),
+                    'published_at desc' => Lang::get('holgerbaumann.news::lang.sorting.published_at_desc')
                 ]
             ],
             'postFeatured' => [
-                'title'       => 'indikator.news::lang.settings.featured_title',
-                'description' => 'indikator.news::lang.settings.featured_description',
+                'title'       => 'holgerbaumann.news::lang.settings.featured_title',
+                'description' => 'holgerbaumann.news::lang.settings.featured_description',
                 'type'        => 'dropdown',
                 'default'     => 0,
                 'options'     => [
-                    0 => Lang::get('indikator.news::lang.settings.list_all'),
-                    1 => Lang::get('indikator.news::lang.settings.list_featured'),
-                    2 => Lang::get('indikator.news::lang.settings.list_notfeatured')
+                    0 => Lang::get('holgerbaumann.news::lang.settings.list_all'),
+                    1 => Lang::get('holgerbaumann.news::lang.settings.list_featured'),
+                    2 => Lang::get('holgerbaumann.news::lang.settings.list_notfeatured')
                 ]
             ],
             'postTranslated' => [
-                'title'       => 'indikator.news::lang.settings.translated_title',
-                'description' => 'indikator.news::lang.settings.translated_description',
+                'title'       => 'holgerbaumann.news::lang.settings.translated_title',
+                'description' => 'holgerbaumann.news::lang.settings.translated_description',
                 'default'     => false,
                 'type'        => 'checkbox'
             ],
             'categoryFilter' => [
-                'title'       => 'indikator.news::lang.settings.category_filter_title',
-                'description' => 'indikator.news::lang.settings.category_filter_description',
+                'title'       => 'holgerbaumann.news::lang.settings.category_filter_title',
+                'description' => 'holgerbaumann.news::lang.settings.category_filter_description',
                 'type'        => 'string',
                 'default'     => ''
             ],
             'postPage' => [
-                'title'       => 'indikator.news::lang.settings.post_title',
-                'description' => 'indikator.news::lang.settings.post_description',
+                'title'       => 'holgerbaumann.news::lang.settings.post_title',
+                'description' => 'holgerbaumann.news::lang.settings.post_description',
                 'type'        => 'dropdown',
                 'default'     => 'news/post',
-                'group'       => 'indikator.news::lang.settings.links'
+                'group'       => 'holgerbaumann.news::lang.settings.links'
             ],
             'categoryPage' => [
-                'title'       => 'indikator.news::lang.settings.category_page_title',
-                'description' => 'indikator.news::lang.settings.category_page_description',
+                'title'       => 'holgerbaumann.news::lang.settings.category_page_title',
+                'description' => 'holgerbaumann.news::lang.settings.category_page_description',
                 'type'        => 'dropdown',
                 'default'     => '',
-                'group'       => 'indikator.news::lang.settings.links'
+                'group'       => 'holgerbaumann.news::lang.settings.links'
             ]
         ];
     }

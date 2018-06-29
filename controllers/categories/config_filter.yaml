@@ -5,26 +5,26 @@
 scopes:
 
     hidden:
-        label: indikator.news::lang.form.hidden
+        label: holgerbaumann.news::lang.form.hidden
         type: checkbox
         conditions: hidden = 1
 
     status_active:
-        label: indikator.news::lang.button.active
+        label: holgerbaumann.news::lang.button.active
         type: checkbox
         conditions: status = 1
 
     status_inactive:
-        label: indikator.news::lang.button.inactive
+        label: holgerbaumann.news::lang.button.inactive
         type: checkbox
         conditions: status = 2
 
     created_date:
-        label: indikator.news::lang.form.created
+        label: holgerbaumann.news::lang.form.created
         type: daterange
         conditions: created_at >= ':after' AND created_at <= ':before'
 
     updated_date:
-        label: indikator.news::lang.form.updated
+        label: holgerbaumann.news::lang.form.updated
         type: daterange
         conditions: updated_at >= ':after' AND updated_at <= ':before'

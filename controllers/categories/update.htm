@@ -2,14 +2,14 @@
 
 $uri = explode('/', Request::path());
 
-$previous = \Indikator\News\Models\Categories::where('id', '<', $uri[5])->max('id');
-$next     = \Indikator\News\Models\Categories::where('id', '>', $uri[5])->min('id');
+$previous = \HolgerBaumann\News\Models\Categories::where('id', '<', $uri[5])->max('id');
+$next     = \HolgerBaumann\News\Models\Categories::where('id', '>', $uri[5])->min('id');
 
 ?>
 
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('indikator/news/categories') ?>"><?= e(trans('indikator.news::lang.menu.categories')) ?></a></li>
+        <li><a href="<?= Backend::url('holgerbaumann/news/categories') ?>"><?= e(trans('holgerbaumann.news::lang.menu.categories')) ?></a></li>
         <li><?= ucfirst(e(trans($this->pageTitle))) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -46,14 +46,14 @@ $next     = \Indikator\News\Models\Categories::where('id', '>', $uri[5])->min('i
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
                 <span class="btn-text">
-                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('indikator/news/categories') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('holgerbaumann/news/categories') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
                 <?php if ($next): ?>
                 <a
                     href="<?= $next; ?>"
                     class="oc-icon-angle-right btn-icon pull-right"
                     style="font-size: 24px; text-decoration:none"
-                    title="<?= e(trans('indikator.content::lang.button.next')) ?>">
+                    title="<?= e(trans('holgerbaumann.content::lang.button.next')) ?>">
                 </a>
                 <?php endif ?>
                 <?php if ($previous): ?>
@@ -61,7 +61,7 @@ $next     = \Indikator\News\Models\Categories::where('id', '>', $uri[5])->min('i
                     href="<?= $previous; ?>"
                     class="oc-icon-angle-left btn-icon pull-right"
                     style="font-size: 24px; text-decoration:none"
-                    title="<?= e(trans('indikator.content::lang.button.previous')) ?>">
+                    title="<?= e(trans('holgerbaumann.content::lang.button.previous')) ?>">
                 </a>
                 <?php endif ?>
             </div>
@@ -85,6 +85,6 @@ $next     = \Indikator\News\Models\Categories::where('id', '>', $uri[5])->min('i
     </div>
     <div class="padded-container">
         <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-        <p><a href="<?= Backend::url('indikator/news/categories') ?>" class="btn btn-default"><?= e(trans('indikator.news::lang.button.return')) ?></a></p>
+        <p><a href="<?= Backend::url('holgerbaumann/news/categories') ?>" class="btn btn-default"><?= e(trans('holgerbaumann.news::lang.button.return')) ?></a></p>
     </div>
 <?php endif ?>

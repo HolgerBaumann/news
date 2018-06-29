@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
 use Illuminate\Mail\Mailable;
 

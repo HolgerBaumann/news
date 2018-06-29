@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Models;
+<?php namespace HolgerBaumann\News\Models;
 
 use Illuminate\Queue\Jobs\Job;
 use Model;
@@ -19,15 +19,15 @@ class Logs extends Model
         'job_id'
     ];
 
-    public $table = 'indikator_news_newsletter_logs';
+    public $table = 'holgerbaumann_news_newsletter_logs';
 
     public $belongsTo = [
         'news' => [
-            'Indikator\News\Models\Posts',
+            'HolgerBaumann\News\Models\Posts',
             'key' => 'news_id'
         ],
         'subscriber' => [
-            'Indikator\News\Models\Subscribers',
+            'HolgerBaumann\News\Models\Subscribers',
             'key' => 'subscriber_id'
         ],
         'job' => [

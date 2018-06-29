@@ -6,19 +6,19 @@
         <ul>
             <?php if ($this->property('total')): ?>
             <li>
-                <span class="status-text"><?= e(trans('indikator.news::lang.widget.total')) ?></span>
+                <span class="status-text"><?= e(trans('holgerbaumann.news::lang.widget.total')) ?></span>
                 <span class="status-label primary"><?= $total ?></span>
             </li>
             <?php endif ?>
             <?php if ($this->property('active')): ?>
             <li>
-                <span class="status-text"><?= e(trans('indikator.news::lang.form.status_active')) ?></span>
+                <span class="status-text"><?= e(trans('holgerbaumann.news::lang.form.status_active')) ?></span>
                 <span class="status-label primary"><?= $active ?></span>
             </li>
             <?php endif ?>
             <?php if ($this->property('unsub')): ?>
             <li>
-                <span class="status-text"><?= e(trans('indikator.news::lang.form.status_unsubscribed')) ?></span>
+                <span class="status-text"><?= e(trans('holgerbaumann.news::lang.form.status_unsubscribed')) ?></span>
                 <span class="status-label primary"><?= $unsub ?></span>
             </li>
             <?php endif ?>
