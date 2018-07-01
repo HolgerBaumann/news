@@ -16,6 +16,8 @@ class CreateSubscribersTable extends Migration
             $table->text('common')->nullable();
             $table->string('created', 1)->default(1);
             $table->string('statistics', 4)->default(0);
+	        $table->string('subscription_key');
+	        $table->boolean('gdpr_confirmation')->default(0);
             $table->timestamps();
         });
     }
