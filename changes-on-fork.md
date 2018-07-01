@@ -7,3 +7,6 @@ updates/create_subscribers_table.php:
 
 views:
 - added mail/email_de.htm
+
+classes/NewsSender.php:
+- see commented out changes in method prepareNewsletterParametersForReceiver()

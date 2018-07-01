@@ -152,7 +152,7 @@ class NewsSender
         }
 
         // Replace
-        if ($this->replacedContent === null) {
+        /*if ($this->replacedContent === null) {
             // Replace all relative URL of images to absolute URL's
             $url = url('/');
             $this->replacedContent = preg_replace('/src="\/([^"]*)"/i', 'src="' . $url . '/$1"', $this->news->content);
@@ -160,7 +160,19 @@ class NewsSender
             // Bugfix while displaying images in Microsoft Outlook
             // height/width must be set as img attribute and not as style
             $this->replacedContent = preg_replace('/<img (.+)?style="width: (.+)px; height: (.+)px;"/i', '<img $1 width="$2" height="$3"', $this->replacedContent);
-        }
+        }*/
+
+	    // Replace all relative URL of images to absolute URL's
+	    $url = url('/');
+	    $this->replacedContent = preg_replace('/src="\/([^"]*)"/i', 'src="' . $url . '/$1"', $this->news->content);
+	    // former changed version:
+	    // $this->replacedContent = preg_replace('/src="\/([^"]*)"/i', 'src="' . $url . '/$1"', $content);
+
+
+	    // Bugfix while displaying images in Microsoft Outlook
+	    // height/width must be set as img attribute and not as style
+	    $this->replacedContent = preg_replace('/<img (.+)?style="width: (.+)px; height: (.+)px;"/i', '<img $1 width="$2" height="$3"', $this->replacedContent);
+
 
         // Parameters
         return [
