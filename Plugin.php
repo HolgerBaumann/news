@@ -123,6 +123,7 @@ class Plugin extends PluginBase
     {
         return [
             'holgerbaumann.news::mail.email_en' => 'E-mail',
+            'holgerbaumann.news::mail.email_de' => 'E-mail',
             'holgerbaumann.news::mail.email_hu' => 'E-mail'
         ];
     }

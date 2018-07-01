@@ -10,3 +10,6 @@ views:
 
 classes/NewsSender.php:
 - see commented out changes in method prepareNewsletterParametersForReceiver()
+
+Plugin.php:
+- added reference to method registerPermissions()
