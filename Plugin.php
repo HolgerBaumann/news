@@ -12,8 +12,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'holgerbaumann.news::lang.plugin.name',
             'description' => 'holgerbaumann.news::lang.plugin.description',
-            'author'      => 'holgerbaumann.news::lang.plugin.author',
-            'icon'        => 'icon-newspaper-o',
+            'author'      => 'Gergő Szabó, Holger Baumann',
             'homepage'    => 'https://github.com/gergo85/oc-news'
         ];
     }
