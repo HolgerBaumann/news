@@ -13,7 +13,7 @@ class Plugin extends PluginBase
             'name'        => 'holgerbaumann.news::lang.plugin.name',
             'description' => 'holgerbaumann.news::lang.plugin.description',
             'author'      => 'Gergő Szabó, Holger Baumann',
-            'homepage'    => 'https://github.com/gergo85/oc-news'
+            'homepage'    => 'https://github.com/HolgerBaumann/news'
         ];
     }
 
