@@ -4,3 +4,6 @@ subscribers/_status.htm:
 
 updates/create_subscribers_table.php:
 - added to fields to news_subscribers_table: subscription_key & gdpr_confirmation
+
+views:
+- added mail/email_de.htm
