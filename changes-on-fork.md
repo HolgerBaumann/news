@@ -20,6 +20,11 @@ updates/add_new_fields_to_table.php:
 views/mail:
 added message_en.htm/message_de.htm
 
-components/subscribe:
+components/Subscribe.php:
 - added method onSubscriptionForConfirmation
 - added material design based subscription form with call to onSubscriptionForConfirmation()
+- added mor vars coming out of .env file
+- implemented new vars into mail templates
+
+routes.php:
+- added
