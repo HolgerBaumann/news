@@ -16,3 +16,10 @@ Plugin.php:
 
 updates/add_new_fields_to_table.php:
 - changed initial value to field status from 1 (active) to 3 (unconfirmed)
+
+views/mail:
+added message_en.htm/message_de.htm
+
+components/subscribe:
+- added method onSubscriptionForConfirmation
+- added material design based subscription form with call to onSubscriptionForConfirmation()

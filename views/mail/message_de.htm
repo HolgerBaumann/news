@@ -1,0 +1,11 @@
+subject = "Newsletter subscription"
+layout = "FlyNex-Mail-Layout"
+==
+Willkommen, {{ user }}.<br />
+Danke für Ihr Interesse an unserem Newsletter auf Flynex.de!<br />
+
+Um Ihre Anmeldung abzuschliessen, klicken Sie bitte auf folgenden Link:<br />
+<a href="{{ url }}/confirm?email={{email}}&amp;key={{subscription_key}}">Link</a>
+<br /><br />
+Wenn Sie den Link nicht anklicken können, kopieren Sie einfach den gesamten Link in Ihren Browser und fügen Sie ihn ein.<br />
+Falls nicht Sie diese Anmeldung vorgenommen haben, machen Sie einfach nichts. Ihre Adresse wird nicht eingetragen.

@@ -1,0 +1,11 @@
+subject = "Newsletter subscription"
+layout = "FlyNex-Mail-Layout"
+==
+Welcome, {{ user }}.<br />
+Thanks for your interest in our newsletter at Flynex.de!<br />
+
+To complete your subscription please click here: <br />
+<a href="{{ url }}/confirm?email={{email}}&amp;key={{subscription_key}}">Link</a>
+<br /><br />
+If you cannot click the link, simply copy and paste the entire link in your browser.<br />
+If it weren't you who started this subscription, simply do nothing.
