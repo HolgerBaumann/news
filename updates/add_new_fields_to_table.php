@@ -14,7 +14,7 @@ class AddNewFieldsToTable extends Migration
 
         Schema::table('news_subscribers', function($table)
         {
-            $table->string('status', 1)->default(1);
+            $table->string('status', 1)->default(3);
         });
     }
 
