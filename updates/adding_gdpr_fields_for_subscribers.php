@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Updates;
+<?php namespace HolgerBaumann\News\Updates;
 
 use October\Rain\Database\Updates\Migration;
 use Schema;
@@ -7,7 +7,7 @@ class AddingGdprFieldsForSubscribers extends Migration
 {
     public function up()
     {
-        Schema::table('indikator_news_subscribers', function($table)
+        Schema::table('holgerbaumann_news_subscribers', function($table)
         {
             $table->dateTime('registered_at')->nullable();
             $table->string('registered_ip')->nullable();
@@ -23,7 +23,7 @@ class AddingGdprFieldsForSubscribers extends Migration
 
     public function down()
     {
-        Schema::table('indikator_news_subscribers', function($table)
+        Schema::table('holgerbaumann_news_subscribers', function($table)
         {
 
             $table->dropColumn('registered_at');

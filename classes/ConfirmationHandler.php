@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
 use Hash;
 use Backend;
@@ -16,7 +16,7 @@ class ConfirmationHandler
     {
         self::generateNewTokenForSubscriber($subscriber);
 
-        $confirmationLink = Backend::url('indikator/news/subscribers/confirm', [
+        $confirmationLink = Backend::url('holgerbaumann/news/subscribers/confirm', [
             'id'   => $subscriber->id,
             'hash' => $subscriber->confirmation_hash
         ]);

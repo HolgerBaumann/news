@@ -1,4 +1,4 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
 use October\Rain\Mail\Mailable;
 use App;
@@ -10,7 +10,7 @@ class ConfirmationMail extends Mailable
 
     public $confirmationLink;
 
-    const templateNamespace = 'indikator.news::mail.confirmation_';
+    const templateNamespace = 'holgerbaumann.news::mail.confirmation_';
 
     public function __construct($subscriber, $confirmationLink)
     {
@@ -40,7 +40,7 @@ class ConfirmationMail extends Mailable
         $langs = [$locale, App::getLocale(), 'en'];
 
         foreach ($langs as $lang) {
-            if (File::exists(base_path().'/plugins/indikator/news/views/mail/confirmation_'.$lang.'.htm')) {
+            if (File::exists(base_path().'/plugins/holgerbaumann/news/views/mail/confirmation_'.$lang.'.htm')) {
                 return self::templateNamespace.$lang;
             }
         }

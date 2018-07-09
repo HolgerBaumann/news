@@ -1,8 +1,8 @@
-<?php namespace Indikator\News\Classes;
+<?php namespace HolgerBaumann\News\Classes;
 
 use Db;
-use Indikator\News\Models\Categories;
-use Indikator\News\Models\Settings;
+use HolgerBaumann\News\Models\Categories;
+use HolgerBaumann\News\Models\Settings;
 
 trait SubscriberService
 {
@@ -15,8 +15,8 @@ trait SubscriberService
     {
         // Register category
         foreach ($listOfCategoryIds as $category) {
-            if (is_numeric($category) && Categories::where(['id' => $category, 'hidden' => 2])->count() == 1 && Db::table('indikator_news_relations')->where(['subscriber_id' => $subscriber->id, 'categories_id' => $listOfCategoryIds])->count() == 0) {
-                Db::table('indikator_news_relations')->insertGetId([
+            if (is_numeric($category) && Categories::where(['id' => $category, 'hidden' => 2])->count() == 1 && Db::table('holgerbaumann_news_relations')->where(['subscriber_id' => $subscriber->id, 'categories_id' => $listOfCategoryIds])->count() == 0) {
+                Db::table('holgerbaumann_news_relations')->insertGetId([
                     'subscriber_id' => $subscriber->id,
                     'categories_id' => $category
                 ]);

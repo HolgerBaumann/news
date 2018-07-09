@@ -29,12 +29,12 @@ fields:
         span: right
 
     newsletter_section:
-        label: indikator.news::lang.backend_settings.newsletter_section
+        label: holgerbaumann.news::lang.backend_settings.newsletter_section
         type: section
 
     newsletter_double_opt_in:
-        label: indikator.news::lang.backend_settings.newsletter_double_opt_in
-        comment: indikator.news::lang.backend_settings.newsletter_double_opt_in_comment
+        label: holgerbaumann.news::lang.backend_settings.newsletter_double_opt_in
+        comment: holgerbaumann.news::lang.backend_settings.newsletter_double_opt_in_comment
         type: switch
         default: true
         span: auto

@@ -97,7 +97,7 @@ class Subscribers extends Controller
 
         if($subscriber == null)
         {
-            Flash::failed(Lang::get('indikator.news::lang.flash.subscriber_confirmation_token_invalid'));
+            Flash::failed(Lang::get('holgerbaumann.news::lang.flash.subscriber_confirmation_token_invalid'));
             return Redirect::to('/');
         }
 
@@ -105,7 +105,7 @@ class Subscribers extends Controller
         {
             if($subscriber->registered_at < Date::now()->subDay())
             {
-                Flash::error(Lang::get('indikator.news::lang.flash.subscriber_confirmation_token_expired'));
+                Flash::error(Lang::get('holgerbaumann.news::lang.flash.subscriber_confirmation_token_expired'));
                 return Redirect::to('/');
             }
 
@@ -113,11 +113,11 @@ class Subscribers extends Controller
             $subscriber->confirmed_at = Date::now();
             $subscriber->activate();
 
-            Flash::success(Lang::get('indikator.news::lang.flash.subscriber_confirmation'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.subscriber_confirmation'));
         } elseif ($subscriber->status == 1) {
-            Flash::success(Lang::get('indikator.news::lang.flash.subscriber_already_confirmed'));
+            Flash::success(Lang::get('holgerbaumann.news::lang.flash.subscriber_already_confirmed'));
         } else {
-            Flash::error(Lang::get('indikator.news::lang.flash.subscriber_confirmation_token_invalid'));
+            Flash::error(Lang::get('holgerbaumann.news::lang.flash.subscriber_confirmation_token_invalid'));
         }
 
         return Redirect::to('/');
