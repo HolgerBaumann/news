@@ -2,7 +2,7 @@ subject = "Newsletter subscription"
 layout = "FlyNex-Mail-Layout"
 ==
 Willkommen, {{ user }}.<br />
-Danke für Ihr Interesse an unserem Newsletter auf Flynex.de!<br />
+Danke für Ihr Interesse an unserem Newsletter auf {{ url_protocol_less|capitalize }}!<br />
 
 Um Ihre Anmeldung abzuschliessen, klicken Sie bitte auf folgenden Link:<br />
 <a href="{{ url }}/confirm?email={{email}}&amp;key={{subscription_key}}">Link</a>

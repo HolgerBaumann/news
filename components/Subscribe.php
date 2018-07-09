@@ -153,10 +153,19 @@ class Subscribe extends ComponentBase
 
 		$url = env('APP_URL');
 
-		$vars = ['subscription_key' => $subscription_key,
-		         'user' => $data['name'],
-		         'email' => $data['email'],
-		         'url' => $url];
+		$url_protocol_less = env('APP_URL_PROTOCOL_LESS');
+
+		$site_name = env('APP_URL');
+
+		$vars = [
+			'subscription_key'  => $subscription_key,
+			'user'              => $data['name'],
+			'email'             => $data['email'],
+			'url'               => $url,
+			'url_protocol_less' => $url_protocol_less,
+			'site_name'         => $site_name
+
+		];
 
 		Mail::send('holgerbaumann.news::mail.message_' . $data['lang'], $vars, function($message) use ($email, $user) {
 
@@ -167,5 +176,7 @@ class Subscribe extends ComponentBase
 
 
 		Flash::success('Jobs done!');
+
+		return '';
 	}
 }
