@@ -112,19 +112,25 @@ class Subscribe extends ComponentBase
 
 		$data = post();
 
+		//DB::enableQueryLog();
+
 		if (DB::table('holgerbaumann_news_subscribers')->where('email', $data['email'])->count() == 1) {
 			throw new ValidationException(['email' => 'already in db']);
 		}
 
+		/*dd(
+			DB::getQueryLog()
+		);*/
+
 		$rules = [
 			'name'  => 'required|between:2,64',
-			'email' => 'required|email|unique:holgerbaumann_news_subscribers,email|between:8,64'
+			'email' => 'email|required|unique:holgerbaumann_news_subscribers,email|between:8,64'
 		];
 
 		$messages = [
 			'name.required' => Lang::get('holgerbaumann.news::lang.validate.name'),/*We need to know your name!*/
-			'email.required' => Lang::get('holgerbaumann.news::lang.validate.email_required'),/*'We need to know your e-mail address!'*/
 			'email.valid' => Lang::get('holgerbaumann.news::lang.validate.email_valid'),
+			'email.required' => Lang::get('holgerbaumann.news::lang.validate.email_required'),/*'We need to know your e-mail address!'*/
 		];
 
 		$validation = Validator::make($data, $rules,$messages);
@@ -144,7 +150,9 @@ class Subscribe extends ComponentBase
 			'subscription_key' => $subscription_key,
 			'locale' => $data['lang'],
 			'created_at' => date('Y-m-d H:i:s'),
-			'updated_at' => date('Y-m-d H:i:s')
+			'updated_at' => date('Y-m-d H:i:s'),
+			'registered_at' => date('Y-m-d H:i:s'),
+			'registered_ip' => $_SERVER['REMOTE_ADDR']
 		]);
 
 		$email = $data['email'];
@@ -167,7 +175,7 @@ class Subscribe extends ComponentBase
 
 		];
 
-		Mail::send('holgerbaumann.news::mail.message_' . $data['lang'], $vars, function($message) use ($email, $user) {
+		Mail::send('holgerbaumann.news::mail.confirm_' . $data['lang'], $vars, function($message) use ($email, $user) {
 
 			$message->to($email, $user);
 			$message->subject(Lang::get('holgerbaumann.news::lang.subscription.email_subject'));
