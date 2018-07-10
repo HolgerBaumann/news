@@ -3,6 +3,7 @@
 use App;
 use File;
 use Mail;
+use October\Rain\Support\Facades\Config;
 use Queue;
 use Log;
 use BackendAuth;
@@ -151,6 +152,7 @@ class NewsSender
             $content = $this->news->content;
         }
 
+
         // Replace
         /*if ($this->replacedContent === null) {
             // Replace all relative URL of images to absolute URL's
@@ -173,17 +175,34 @@ class NewsSender
 	    // height/width must be set as img attribute and not as style
 	    $this->replacedContent = preg_replace('/<img (.+)?style="width: (.+)px; height: (.+)px;"/i', '<img $1 width="$2" height="$3"', $this->replacedContent);
 
+	    // Replace all relative URL of images to absolute URL's
+	    $url = url('/');
+	    $this->replacedIntroductory = preg_replace('/src="\/([^"]*)"/i', 'src="' . $url . '/$1"', $this->news->introductory);
+	    // former changed version:
+	    // $this->replacedContent = preg_replace('/src="\/([^"]*)"/i', 'src="' . $url . '/$1"', $content);
 
-        // Parameters
+
+	    // Bugfix while displaying images in Microsoft Outlook
+	    // height/width must be set as img attribute and not as style
+	    $this->replacedIntroductory = preg_replace('/<img (.+)?style="width: (.+)px; height: (.+)px;"/i', '<img $1 width="$2" height="$3"', $this->replacedIntroductory);
+
+
+
+	    // Parameters
+
         return [
             'name'  => $receiver->name,
             'email' => $receiver->email,
+	        'unsubscription_key' => $receiver->unsubscription_key,
             'title' => $this->news->title,
             'slug'  => $this->news->slug,
-            'introductory' => $this->news->introductory,
-            'summary' => $this->news->introductory,
-            'content' => $this->replacedContent,
-            'image'   => $this->news->image
+            'introductory' => $this->replacedIntroductory,
+            'summary' => $this->replacedIntroductory,
+            'maincontent' => $this->replacedContent,
+            'image'   => $this->news->image,
+            'locale' => $receiver->locale,
+	        'app_url' => env('APP_URL'),
+	        'path' => Config::get('cms.storage.media.path')
         ];
     }
 
