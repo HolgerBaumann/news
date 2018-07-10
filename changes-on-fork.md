@@ -18,7 +18,7 @@ updates/add_new_fields_to_table.php:
 - changed initial value to field status from 1 (active) to 3 (unconfirmed)
 
 views/mail:
-added message_en.htm/message_de.htm
+- added message_en.htm/message_de.htm
 
 components/Subscribe.php:
 - added method onSubscriptionForConfirmation
@@ -39,3 +39,6 @@ models/Subscribe.php:
 routes.php:
 - added confirmed_at/confirmed_ip to insert
 - added fail safe redirecting
+
+views/mail:
+- updated email templates to use right email layouts, see db-dump: dbDumps/work_dump_10.07.18_17-59.sql
