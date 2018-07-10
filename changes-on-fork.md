@@ -35,3 +35,7 @@ components/Subscribe.php:
 models/Subscribe.php:
 - added method deleteSubscriber(), instead of method unsubscribe() 
 - added scope method scopeKey()
+
+routes.php:
+- added confirmed_at/confirmed_ip to insert
+- added fail safe redirecting
