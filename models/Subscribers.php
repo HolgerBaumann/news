@@ -92,6 +92,11 @@ class Subscribers extends Model
         $this->save();
     }
 
+	public function deleteSubscriber()
+	{
+		$this->destroy($this->id);
+	}
+
     public function scopeFilterCategories($query, $categories)
     {
         return $query->whereHas('categories', function($q) use ($categories) {
@@ -103,6 +108,12 @@ class Subscribers extends Model
     {
         return $query->where('email', $email);
     }
+
+
+	public function scopeKey($query, $key)
+	{
+		return $query->where('unsubscription_key', $key);
+	}
 
     public function scopeIsSubscribed($query)
     {

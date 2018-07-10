@@ -28,3 +28,10 @@ components/Subscribe.php:
 
 routes.php:
 - added
+
+components/Subscribe.php:
+- added registered_at/registered_ip to insert
+
+models/Subscribe.php:
+- added method deleteSubscriber(), instead of method unsubscribe() 
+- added scope method scopeKey()
