@@ -42,3 +42,6 @@ routes.php:
 
 views/mail:
 - updated email templates to use right email layouts, see db-dump: dbDumps/work_dump_10.07.18_17-59.sql
+
+components/subscribe/default.htm:
+- implemented needed js function and styles directly into file 

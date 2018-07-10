@@ -5,8 +5,8 @@
 >
     <input name="lang" type="hidden" value="{{activeLocale}}">
     <p class="h4 text-center mb-2">{{ 'Anmeldung für unseren Newsletter'|_ }}</p>
-    <div id="loading"><i class="fa fa-refresh fa-spin fa-fw"></i></div>
-    <div id="success">{{ "flynex.misc::lang.subscription.thank_you_msg"|trans }}</div>
+    <!--<div id="loading"><i class="fa fa-refresh fa-spin fa-fw"></i></div>-->
+    <div id="subscriptionSuccess">{{ "holgerbaumann.news::lang.subscription.thank_you_msg"|trans }}</div>
 
     <!-- Material input text -->
     <div class="md-form">
@@ -14,7 +14,7 @@
         <input name="name" type="text" id="subscribersName" class="form-control">
         <label for="subscribersName">{{ 'Name'|_ }} *</label>
         <span class="newsletter-validation-message" data-validate-for="name">
-                                {{ "flynex.misc::lang.validate.name"|trans }}
+                                {{ "holgerbaumann.news::lang.validate.name"|trans }}
                             </span>
     </div>
 
@@ -24,11 +24,24 @@
         <input name="email" type="text" id="subscribersEmail" class="form-control">
         <label for="subscribersEmail">{{ 'Email'|_ }} *</label>
         <span class="newsletter-validation-message" data-validate-for="email">
-                                {{ "flynex.misc::lang.validate.email_required"|trans }}
+                                {{ "holgerbaumann.news::lang.validate.email_required"|trans }}
                             </span>
     </div>
 
     <div class="text-right mt-0">
-        <button class="btn btn-outline-info ripple nl-button" type="submit">{{ 'Anmelden'|_ }}<i class="fa fa-paper-plane-o ml-2"></i></button>
+        <button class="btn btn-outline-info ripple nl-button" data-attach-loading type="submit">{{ 'Anmelden'|_ }}<i class="fa fa-paper-plane-o ml-2"></i></button>
     </div>
 </form>
+<style>
+    #subscriptionSuccess {
+        display: none;
+    }
+</style>
+<script>
+    function emptyFields() {
+        document.getElementById('subscriptionSuccess').style.display = 'block';
+        document.getElementById('subscribersName').value = "";
+        document.getElementById('subscribersEmail').value = "";
+        $('#success').fadeOut(20000);
+    }
+</script>
