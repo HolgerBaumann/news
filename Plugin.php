@@ -124,7 +124,9 @@ class Plugin extends PluginBase
         return [
             'holgerbaumann.news::mail.email_en' => 'E-mail',
             'holgerbaumann.news::mail.email_de' => 'E-mail',
-            'holgerbaumann.news::mail.email_hu' => 'E-mail'
+            'holgerbaumann.news::mail.email_hu' => 'E-mail',
+            'holgerbaumann.news::mail.confirm_de' => 'Confirmation E-mail',
+            'holgerbaumann.news::mail.confirm_en' => 'Confirmation E-mail'
         ];
     }
 

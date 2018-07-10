@@ -52,3 +52,6 @@ lang/de/lang.php, lang/en/lang.php:
 classes/NewsSender:
 - updated method prepareNewsletterParametersForReceiver() to include filtered (images!) values for introductory & content fields
 - added more vars (locale, app_path, media_path) (images!)
+
+Plugin.php:
+- registered email templates
