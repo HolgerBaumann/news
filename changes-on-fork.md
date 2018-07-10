@@ -45,3 +45,6 @@ views/mail:
 
 components/subscribe/default.htm:
 - implemented needed js function and styles directly into file 
+
+lang/de/lang.php, lang/en/lang.php:
+- added messages for validation & subscription.

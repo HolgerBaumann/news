@@ -6,6 +6,15 @@ return [
         'description' => 'Simple news and newsletter plugin.',
         'author' => 'Gergő Szabó',
     ],
+    'validate' => [
+	    'name' => 'Please enter your name.',
+	    'email_required' => 'Please enter your correct email address.',
+	    'email_valid' => 'email_valid'
+    ],
+    'subscription' => [
+	    'email_subject' => 'Please confirm your subscription to our newsletter at ' . env('APP_URL'),
+	    'thank_you_msg' => 'Thanks for your subscription!'
+    ],
     'menu' => [
         'news' => 'News',
         'posts' => 'Posts',
