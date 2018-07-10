@@ -55,3 +55,12 @@ classes/NewsSender:
 
 Plugin.php:
 - registered email templates
+
+components/unsubscribe/default.htm:
+- implemented a 'hidden' unsubscription form, filled with values coming from link in each email.
+
+components/unsubscribe/default_original.htm:
+- just a copy for reference
+
+components/Unsubscribe.php:
+- implemented method onUnsubscribeHidden(), to delete a user, instead of just unsubscribing

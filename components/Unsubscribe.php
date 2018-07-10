@@ -37,4 +37,19 @@ class Unsubscribe extends ComponentBase
 
         $subscriber->unsubscribe();
     }
+
+
+	public function onUnsubscribeHidden()
+	{
+		$data = post();
+		$subscriber = Subscribers::email($data['email'])->key($data['key'])->first();
+
+		//dd($subscriber->name);
+
+		if ($subscriber === null || !$subscriber->isActive()) {
+			return Response::make(Lang::get('holgerbaumann.news::lang.messages.not_subscribed'), 400);
+		}
+
+		$subscriber->deleteSubscriber();
+	}
 }
